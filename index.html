@@ -1,47 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Rofaz Hasan Rafiu - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Md Rofaz Portfolio</title>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="about">
-        <div id="name"></div>
-        <div id="university"></div>
-        <div id="expertise"></div>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <div id="skills-list"></div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div id="projects-list"></div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <div id="social-links"></div>
-    </section>
-
+    <div class="navbar">
+        <button id="home-btn">Home</button>
+        <button id="projects-btn">Projects</button>
+        <button id="contact-btn">Contact</button>
+    </div>
+    <div class="content">
+        <h1 id="title"></h1>
+        <p id="description"></p>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close" id="close-popup">&times;</span>
+            <!-- Popup content goes here -->
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
-
 </html>
