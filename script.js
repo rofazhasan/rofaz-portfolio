@@ -36,3 +36,23 @@ for (const [platform, link] of Object.entries(data.socialLinks)) {
     linkElement.textContent = platform.charAt(0).toUpperCase() + platform.slice(1);
     socialLinksDiv.appendChild(linkElement);
 }
+const sections = document.querySelectorAll("section");
+
+sections.forEach(section => {
+    const butterfly = document.createElement("div");
+    butterfly.classList.add("butterfly");
+    section.appendChild(butterfly);
+});
+
+const buttons = document.querySelectorAll(".button");
+
+buttons.forEach(button => {
+    button.addEventListener("mouseenter", () => {
+        const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+        button.style.backgroundColor = randomColor;
+    });
+
+    button.addEventListener("mouseleave", () => {
+        button.style.backgroundColor = "#3498db";
+    });
+});
