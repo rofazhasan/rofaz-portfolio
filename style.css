@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
 }
 
 header {
@@ -21,21 +22,48 @@ nav ul li {
 section {
     padding: 50px;
     text-align: center;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-section#about {
-    background-color: #f0f0f0;
+section h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #3498db;
 }
 
-section#skills {
-    background-color: #eaf2f8;
+.butterfly {
+    width: 80px;
+    height: 60px;
+    background-image: url('https://abclive1.s3.amazonaws.com/ec5f8cdf-6b7b-4e5a-aec7-9f4d9094d1ef/productimage/11736_INPAL10-BUTTERFLY___L.jpg'); /* Add your butterfly image URL here */
+    background-size: cover;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    animation: butterfly-animation 6s infinite;
 }
 
-section#projects {
-    background-color: #d4e6f1;
+@keyframes butterfly-animation {
+    0% { top: -20px; left: -20px; }
+    50% { top: 20px; left: 20px; }
+    100% { top: -20px; left: -20px; }
 }
 
-section#contact {
+.button {
     background-color: #3498db;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
+
+.button:hover {
+    background-color: #2980b9;
+}
+
