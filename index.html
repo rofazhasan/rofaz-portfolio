@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Md Rofaz Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="navbar">
-        <button id="home-btn">Home</button>
-        <button id="projects-btn">Projects</button>
-        <button id="contact-btn">Contact</button>
-    </div>
-    <div class="content">
-        <h1 id="title"></h1>
-        <p id="description"></p>
-    </div>
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <span class="close" id="close-popup">&times;</span>
-            <!-- Popup content goes here -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <h1>Hello, I'm Md. Rafiu</h1>
+        <p>Computer Science Student | Backend Developer | AI Enthusiast</p>
+    </section>
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of Project 1</p>
         </div>
-    </div>
-    <script src="script.js"></script>
+        <!-- Add more project cards here -->
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: rafiu@example.com</p>
+    </section>
+    <footer>
+        &copy; 2023 Md. Rafiu
+    </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
