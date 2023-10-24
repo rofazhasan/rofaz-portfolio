@@ -258,34 +258,49 @@ section .title::after{
 }
 
 /* services section styling */
-.servicesText.card {
-    height: 280px;
+.services, .teams{
+    color:#fff;
+    background: #111;
+}
+.services .title::before,
+.teams .title::before{
+    background: #fff;
+}
+.services .title::after,
+.teams .title::after{
+    background: #111;
+    content: "what i provide";
+}
+.services .serv-content .card{
+    width: calc(33% - 20px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 50px 25px;
     cursor: pointer;
-  }
-.servicesIcon {
-    font-size: 36px;
-    text-align: center;
-    width: 100%;
+    transition: all 0.3s ease;
 }
-.card-title {
-    text-align: center;
+.services .serv-content .card:hover{
+    background: crimson;
 }
-.card:hover .servicesIcon {
-    color: #008000;
+.services .serv-content .card .box{
+    transition: all 0.3s ease;
 }
-.servicesText:hover {
-    border: 1px solid #008000;
+.services .serv-content .card:hover .box{
+    transform: scale(1.05);
 }
-const header = document.querySelector('.navbar');
-
-window.onscroll = function() {
-    var top = window.scrollY;
-    if(top >=100) {
-        header.classList.add('navbarDark');
-    }
-    else {
-        header.classList.remove('navbarDark');
-    }
+.services .serv-content .card i{
+    font-size: 50px;
+    color: crimson;
+    transition: color 0.3s ease;
+}
+.services .serv-content .card:hover i{
+    color: #fff;
+}
+.services .serv-content .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
 }
 
 /* skills section styling */
