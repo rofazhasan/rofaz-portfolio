@@ -1,13 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+header {
+    background-color: #3498db;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
 }
 
 nav ul {
@@ -16,10 +15,27 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 20px;
 }
 
-a {
-    text-decoration: none;
-    color: #333;
+section {
+    padding: 50px;
+    text-align: center;
+}
+
+section#about {
+    background-color: #f0f0f0;
+}
+
+section#skills {
+    background-color: #eaf2f8;
+}
+
+section#projects {
+    background-color: #d4e6f1;
+}
+
+section#contact {
+    background-color: #3498db;
+    color: white;
 }
