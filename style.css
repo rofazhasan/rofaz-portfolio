@@ -256,6 +256,15 @@ section .title::after{
     color: crimson;
     background: none;
 }
+.education {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.school, .college {
+    margin-bottom: 20px;
 
 /* services section styling */
 .services, .teams{
