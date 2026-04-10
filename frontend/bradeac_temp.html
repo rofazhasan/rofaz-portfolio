@@ -1,0 +1,861 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Portfolio of Camil Bradea"><link rel="canonical" href="https://bradeac.dev/"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:url" content="https://bradeac.dev/"><meta property="og:title" content="Camil Bradea"><meta property="og:description" content="Portfolio of Camil Bradea"><meta property="og:image" content="https://bradeac.dev/og-default.png"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Camil Bradea"><meta name="twitter:description" content="Portfolio of Camil Bradea"><meta name="twitter:image" content="https://bradeac.dev/og-default.png"><link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/syne-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin><title>Camil Bradea</title><script>
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    </script><style>button[data-astro-cid-x3pjskd3]{background:var(--green-dim);border:1px solid var(--border);border-radius:4px;padding:.4rem;cursor:none;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s,background .2s;margin-left:.5rem;font-family:var(--font-mono)}button[data-astro-cid-x3pjskd3]:hover{color:var(--green);border-color:var(--green);box-shadow:0 0 8px #00ff4126}.icon-sun[data-astro-cid-x3pjskd3],.icon-moon[data-astro-cid-x3pjskd3]{display:none}[data-theme=dark] .icon-sun[data-astro-cid-x3pjskd3],[data-theme=light] .icon-moon[data-astro-cid-x3pjskd3]{display:flex}header[data-astro-cid-dmqpwcec]{flex-shrink:0;z-index:100;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}nav[data-astro-cid-dmqpwcec]{display:flex;align-items:center;justify-content:space-between;height:var(--nav-height);max-width:var(--max-width);margin:0 auto;padding:0 2rem;gap:2rem}.nav-brand[data-astro-cid-dmqpwcec]{font-family:var(--font-mono);font-size:.85rem;font-weight:500;color:var(--text);display:flex;align-items:center;letter-spacing:0;transition:text-shadow .3s}.nav-brand[data-astro-cid-dmqpwcec]:hover{color:var(--text);text-shadow:var(--glow-text)}.brand-user[data-astro-cid-dmqpwcec]{color:var(--green)}.brand-at[data-astro-cid-dmqpwcec]{color:var(--text-dim)}.brand-host[data-astro-cid-dmqpwcec]{color:var(--cyan)}.brand-colon[data-astro-cid-dmqpwcec]{color:var(--text-dim)}.brand-path[data-astro-cid-dmqpwcec]{color:var(--text-muted)}.brand-dollar[data-astro-cid-dmqpwcec]{color:var(--text-muted);margin-left:1px}.nav-links[data-astro-cid-dmqpwcec]{display:flex;align-items:center;gap:.15rem}.nav-link[data-astro-cid-dmqpwcec]{font-family:var(--font-mono);color:var(--text-muted);font-size:.8rem;font-weight:500;padding:.4rem .7rem;border-radius:4px;transition:color .2s,background .2s,text-shadow .2s;position:relative}.nav-prefix[data-astro-cid-dmqpwcec]{color:var(--text-dim);font-size:.75rem}.nav-link[data-astro-cid-dmqpwcec]:hover,.nav-link[data-astro-cid-dmqpwcec].active{color:var(--green);background:var(--green-dim)}.nav-link[data-astro-cid-dmqpwcec].active:before{content:"";position:absolute;bottom:4px;left:50%;transform:translate(-50%);width:4px;height:4px;background:var(--green);border-radius:50%;box-shadow:0 0 6px var(--green)}@media(max-width:640px){nav[data-astro-cid-dmqpwcec]{padding:0 1.25rem}.nav-links[data-astro-cid-dmqpwcec]{gap:0}.nav-link[data-astro-cid-dmqpwcec]{font-size:.7rem;padding:.35rem .45rem}.nav-prefix[data-astro-cid-dmqpwcec],.brand-host[data-astro-cid-dmqpwcec],.brand-colon[data-astro-cid-dmqpwcec],.brand-path[data-astro-cid-dmqpwcec]{display:none}.nav-brand[data-astro-cid-dmqpwcec]{font-size:.8rem}}footer[data-astro-cid-sz7xmlte]{flex-shrink:0;border-top:1px solid var(--border)}.footer-inner[data-astro-cid-sz7xmlte]{max-width:var(--max-width);margin:0 auto;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}.footer-left[data-astro-cid-sz7xmlte]{display:flex;align-items:center;gap:.6rem;font-family:var(--font-mono);font-size:.72rem}.status-dot[data-astro-cid-sz7xmlte]{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,to{opacity:1}50%{opacity:.4}}.footer-status[data-astro-cid-sz7xmlte]{color:var(--green)}.footer-copy[data-astro-cid-sz7xmlte]{color:var(--text-dim)}.footer-right[data-astro-cid-sz7xmlte]{display:flex;gap:1rem}.footer-link[data-astro-cid-sz7xmlte]{font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);transition:color .2s}.footer-link[data-astro-cid-sz7xmlte]:hover{color:var(--green)}@font-face{font-family:JetBrains Mono;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:JetBrains Mono;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/jetbrains-mono-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:JetBrains Mono;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:JetBrains Mono;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Outfit;font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/outfit-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Outfit;font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/outfit-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Outfit;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/outfit-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Outfit;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/outfit-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Outfit;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/outfit-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Outfit;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/outfit-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Outfit;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/outfit-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Outfit;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/outfit-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Syne;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/syne-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Syne;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/syne-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Syne;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/syne-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Syne;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/syne-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Syne;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/syne-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Syne;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/syne-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Syne;font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/syne-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Syne;font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/syne-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Syne;font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/syne-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Syne;font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/syne-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}:root{--font-display: "Syne", sans-serif;--font-mono: "JetBrains Mono", monospace;--font-body: "Outfit", sans-serif;--max-width: 1100px;--nav-height: 56px;--cursor-size: 18px}[data-theme=dark]{--bg: #0a0f0a;--bg-secondary: #0f160f;--bg-card: #0d130d;--bg-card-hover: #111a11;--text: #d0d0d0;--text-bright: #f0f0f0;--text-muted: #5a7a5a;--text-dim: #2e4a2e;--border: #1a2e1a;--green: #00ff41;--green-dim: rgba(0, 255, 65, .08);--green-glow: rgba(0, 255, 65, .15);--red: #ff2a6d;--red-dim: rgba(255, 42, 109, .08);--cyan: #05d9e8;--cyan-dim: rgba(5, 217, 232, .08);--amber: #ffb000;--scanline-opacity: .03;--vignette-opacity: .4;--shadow-card: 0 0 20px rgba(0, 255, 65, .05);--shadow-card-hover: 0 0 40px rgba(0, 255, 65, .1);--glow-text: 0 0 10px rgba(0, 255, 65, .3);--canvas-opacity: .25}[data-theme=light]{--bg: #f0f2e8;--bg-secondary: #e8ebe0;--bg-card: #ffffff;--bg-card-hover: #f5f7ef;--text: #1a1f1a;--text-bright: #0a0f0a;--text-muted: #5a6a5a;--text-dim: #a0b0a0;--border: #c5d0c0;--green: #00aa2a;--green-dim: rgba(0, 170, 42, .06);--green-glow: rgba(0, 170, 42, .1);--red: #cc1155;--red-dim: rgba(204, 17, 85, .06);--cyan: #0099aa;--cyan-dim: rgba(0, 153, 170, .06);--amber: #cc8800;--scanline-opacity: .015;--vignette-opacity: .15;--shadow-card: 0 2px 20px rgba(0, 0, 0, .06);--shadow-card-hover: 0 4px 30px rgba(0, 0, 0, .1);--glow-text: none;--canvas-opacity: .6}html{font-family:var(--font-mono);color:var(--text);background:var(--bg);line-height:1.6;scroll-behavior:smooth;cursor:none}body{height:100vh;height:100dvh;display:flex;flex-direction:column;position:relative;overflow:hidden}#particle-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:var(--canvas-opacity)}.scanlines{position:fixed;inset:0;pointer-events:none;z-index:9999;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.15) 2px,rgba(0,0,0,.15) 4px);opacity:var(--scanline-opacity)}.crt-vignette{position:fixed;inset:0;pointer-events:none;z-index:9998;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.5) 100%);opacity:var(--vignette-opacity)}@keyframes screenFlicker{0%{opacity:1}3%{opacity:.85}5%{opacity:1}7%{opacity:.9}9%{opacity:1}to{opacity:1}}.screen-flicker{animation:screenFlicker .15s ease-out}.cursor{width:var(--cursor-size);height:var(--cursor-size);position:fixed;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);opacity:0;transition:width .3s cubic-bezier(.23,1,.32,1),height .3s cubic-bezier(.23,1,.32,1),opacity .3s}.cursor:before,.cursor:after{content:"";position:absolute;background:var(--green)}.cursor:before{width:1px;height:100%;left:50%;top:0;transform:translate(-50%)}.cursor:after{width:100%;height:1px;top:50%;left:0;transform:translateY(-50%)}.cursor.visible{opacity:.7}.cursor.hover{width:40px;height:40px;opacity:1}.cursor-dot{width:4px;height:4px;background:var(--green);position:fixed;pointer-events:none;z-index:10001;transform:translate(-50%,-50%);opacity:0;box-shadow:0 0 6px var(--green)}.cursor-dot.visible{opacity:1}@media(max-width:768px){html{cursor:auto}.cursor,.cursor-dot{display:none!important}}a{color:var(--green);text-decoration:none;transition:color .2s,text-shadow .2s;cursor:none}a:hover{color:var(--green);text-shadow:var(--glow-text)}a.cta:hover .cta-inner{text-shadow:.5px 0 var(--red),-.5px 0 var(--cyan);animation:glitchText .3s ease-out}img{max-width:100%;display:block}button,input,textarea,select{cursor:none}main{flex:1;display:flex;flex-direction:column;min-height:0;overflow-y:auto;padding:3rem 2rem;align-items:center}main>*{width:100%;max-width:var(--max-width)}h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;letter-spacing:-.03em;line-height:1.1;color:var(--text-bright)}h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:1.5rem}h2{font-size:clamp(1.4rem,3vw,1.8rem);margin-bottom:1rem}h3{font-size:1.15rem}.page-title{font-size:clamp(3rem,8vw,5rem);font-weight:800;margin-bottom:.5rem;letter-spacing:-.04em;color:var(--text-bright)}.page-subtitle{color:var(--text-muted);font-size:.9rem;margin-bottom:3rem;max-width:500px;font-family:var(--font-mono)}.page-subtitle:before{content:"// ";color:var(--text-dim)}.card{background:var(--bg-card);border-radius:8px;border:1px solid var(--border);box-shadow:var(--shadow-card);transition:transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s cubic-bezier(.23,1,.32,1),border-color .3s;position:relative;overflow:hidden}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card-hover);border-color:var(--green)}.terminal-bar{display:flex;align-items:center;gap:6px;padding:.6rem .9rem;border-bottom:1px solid var(--border);background:var(--bg-secondary);font-size:0}.terminal-dot{width:10px;height:10px;border-radius:50%;display:inline-block}.terminal-dot.red{background:var(--red)}.terminal-dot.amber{background:var(--amber)}.terminal-dot.green{background:var(--green)}.terminal-bar-title{font-family:var(--font-mono);font-size:.7rem;color:var(--text-dim);margin-left:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}.tag{display:inline-block;font-size:.7rem;font-weight:500;padding:.2rem .55rem;border-radius:3px;background:var(--green-dim);color:var(--green);letter-spacing:.02em;font-family:var(--font-mono)}@keyframes glitchClip{0%{clip-path:inset(40% 0 61% 0);transform:translate(-2px,2px)}20%{clip-path:inset(92% 0 1% 0);transform:translate(2px,-1px)}40%{clip-path:inset(43% 0 1% 0);transform:translate(-1px,3px)}60%{clip-path:inset(25% 0 58% 0);transform:translate(3px,1px)}80%{clip-path:inset(54% 0 7% 0);transform:translate(-3px,-2px)}to{clip-path:inset(58% 0 43% 0);transform:translate(0)}}.glitch-hover{position:relative}.glitch-hover:hover{text-shadow:.5px 0 var(--red),-.5px 0 var(--cyan);animation:glitchText .3s ease-out}@keyframes glitchText{0%{text-shadow:2px 0 var(--red),-2px 0 var(--cyan)}25%{text-shadow:-2px 0 var(--red),2px 0 var(--cyan)}50%{text-shadow:1px 1px var(--red),-1px -1px var(--cyan)}75%{text-shadow:-1px 0 var(--red),1px 0 var(--cyan)}to{text-shadow:.5px 0 var(--red),-.5px 0 var(--cyan)}}@keyframes blink{0%,to{opacity:1}50%{opacity:0}}.blink{animation:blink 1s step-end infinite}.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1)}.reveal.visible{opacity:1;transform:translateY(0)}@keyframes fadeUp{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.stagger>*{opacity:0;animation:fadeUp .5s cubic-bezier(.23,1,.32,1) forwards}.stagger>*:nth-child(1){animation-delay:.05s}.stagger>*:nth-child(2){animation-delay:.12s}.stagger>*:nth-child(3){animation-delay:.15s}.stagger>*:nth-child(4){animation-delay:.2s}.stagger>*:nth-child(5){animation-delay:.25s}.stagger>*:nth-child(6){animation-delay:.3s}.stagger>*:nth-child(7){animation-delay:.35s}.stagger>*:nth-child(8){animation-delay:.4s}::selection{background:var(--green);color:var(--bg)}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--text-dim);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--green)}@media(max-width:640px){main{padding:2rem 1.25rem}}
+.hero-wrap[data-astro-cid-bbe6dxrz]{position:relative;display:flex;align-items:stretch;padding:2rem 0;overflow:hidden;flex:1;min-height:0}.hero[data-astro-cid-bbe6dxrz]{position:relative;z-index:1;width:100%;max-width:var(--max-width);background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;flex:1;min-height:0}.terminal-header[data-astro-cid-bbe6dxrz]{display:flex;align-items:center;gap:7px;padding:.75rem 1rem;border-bottom:1px solid var(--border);background:var(--bg-secondary)}.terminal-dot[data-astro-cid-bbe6dxrz]{width:12px;height:12px;border-radius:50%}.terminal-dot[data-astro-cid-bbe6dxrz].red{background:var(--red)}.terminal-dot[data-astro-cid-bbe6dxrz].amber{background:var(--amber)}.terminal-dot[data-astro-cid-bbe6dxrz].green{background:var(--green)}.terminal-header-title[data-astro-cid-bbe6dxrz]{font-family:var(--font-mono);font-size:.75rem;color:var(--text-dim);margin-left:auto}.terminal-body[data-astro-cid-bbe6dxrz]{padding:1.75rem 2rem 2rem;display:flex;flex-direction:column;gap:.15rem;overflow-y:auto;flex:1;min-height:0}.terminal-body[data-astro-cid-bbe6dxrz]::-webkit-scrollbar{width:6px}.terminal-body[data-astro-cid-bbe6dxrz]::-webkit-scrollbar-track{background:transparent}.terminal-body[data-astro-cid-bbe6dxrz]::-webkit-scrollbar-thumb{background:var(--text-dim);border-radius:3px}.cmd-line{display:flex;align-items:center;gap:.6rem;margin-top:1rem}.prompt{color:var(--green);font-family:var(--font-mono);font-size:.9rem;font-weight:500;text-shadow:var(--glow-text);flex-shrink:0}.prompt-dim{color:var(--text-dim);font-family:var(--font-mono)}.cmd{font-family:var(--font-mono);color:var(--text-bright);font-size:.9rem}.hero-ascii{font-family:var(--font-mono);font-size:clamp(.35rem,1.1vw,.7rem);line-height:1.2;color:var(--green);text-shadow:var(--glow-text);margin:.5rem 0 .75rem;white-space:pre;overflow:hidden;min-height:6em}.hero-name-sr[data-astro-cid-bbe6dxrz]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}.whoami-info{font-family:var(--font-mono);font-size:.92rem;color:var(--text-bright);padding-left:.5rem;line-height:1.7}.info-key{color:var(--green);font-weight:500;font-size:.72rem;letter-spacing:.08em;text-shadow:var(--glow-text);display:inline-block;width:12ch}.cmd-output{font-family:var(--font-mono);font-size:.88rem;color:var(--text-muted);padding-left:1.5rem;margin-bottom:.25rem}.social-commands{display:flex;flex-direction:column;gap:.2rem;padding-left:1.5rem}.social-cmd{font-family:var(--font-mono);font-size:.82rem;color:var(--text-muted);transition:color .2s,text-shadow .2s;padding:.15rem 0;text-decoration:underline;text-decoration-style:dashed;text-decoration-color:var(--text-dim);text-underline-offset:3px;text-decoration-thickness:1px;width:fit-content}.social-cmd:hover{color:var(--green);text-decoration-color:var(--green);text-decoration-style:solid}.product-list{display:flex;flex-direction:column;gap:.2rem;padding-left:1.5rem}.product-item{font-family:var(--font-mono);font-size:.82rem;color:var(--text-muted);transition:color .2s;padding:.15rem 0;width:fit-content}.product-item:hover{color:var(--green)}.product-name{color:var(--text-muted);transition:color .2s}.product-item:hover .product-name{color:var(--green)}.product-desc{color:var(--text-dim);font-size:.75rem}.help-heading{font-family:var(--font-mono);font-size:.8rem;color:var(--text-dim);padding-left:1.5rem;margin:.15rem 0}.cmd-hint{font-family:var(--font-mono);font-size:.75rem;color:var(--text-dim);margin-top:1.25rem;font-style:italic}.input-line{display:flex;align-items:center;gap:.6rem;margin-top:1rem}.input-wrap{display:flex;align-items:center;flex:1;min-width:0}.terminal-input{font-family:var(--font-mono);font-size:.9rem;color:var(--text-bright);background:transparent;border:none;outline:none;flex:1;min-width:0;caret-color:var(--green);padding:0;line-height:1.4}.terminal-input::placeholder{color:var(--text-dim)}.block-cursor{color:var(--green);font-family:var(--font-mono);font-size:.95rem;text-shadow:var(--glow-text);user-select:none}@keyframes nukeGlitch{0%{transform:translate(0);filter:none}20%{transform:translate(-3px,2px);filter:hue-rotate(90deg)}40%{transform:translate(3px,-2px);filter:invert(1)}60%{transform:translate(-2px,-1px);filter:hue-rotate(180deg)}80%{transform:translate(2px,3px);filter:invert(0) hue-rotate(270deg)}to{transform:translate(0);filter:none}}@keyframes fadeIn{0%{opacity:0;transform:translateY(4px);pointer-events:none}to{opacity:1;transform:translateY(0);pointer-events:auto}}.term-response{font-family:var(--font-mono);font-size:.85rem;color:var(--text-muted);padding-left:1.5rem;margin:.15rem 0;animation:fadeIn .2s ease forwards}.term-response.error{color:var(--red)}.term-response.success{color:var(--green);text-shadow:var(--glow-text)}.term-response a{color:var(--green);text-decoration:underline;text-decoration-style:dashed;text-underline-offset:3px;text-decoration-color:var(--text-dim)}.term-response a:hover{text-decoration-style:solid;text-decoration-color:var(--green);text-shadow:.5px 0 var(--red),-.5px 0 var(--cyan);animation:glitchText .3s ease-out}.cv-name{color:var(--green);font-weight:500;text-shadow:var(--glow-text)}.cv-heading{color:var(--green);font-size:.75rem;letter-spacing:.1em}.cv-dim{color:var(--text-dim)}.cv-spacer{height:.3rem}.term-history{display:flex;align-items:center;gap:.6rem;margin-top:.5rem;font-family:var(--font-mono);font-size:.9rem;animation:fadeIn .2s ease forwards}.term-history .prompt{color:var(--green);font-family:var(--font-mono);font-size:.9rem;font-weight:500;text-shadow:var(--glow-text)}.term-history .cmd{color:var(--text-bright)}@media(max-width:768px){.hero-wrap[data-astro-cid-bbe6dxrz]{padding:0}.hero[data-astro-cid-bbe6dxrz]{border-radius:0;border-left:none;border-right:none}.terminal-body[data-astro-cid-bbe6dxrz]{padding:1.25rem}.hero-ascii[data-astro-cid-bbe6dxrz]{font-size:clamp(.28rem,1.5vw,.45rem)}.social-commands[data-astro-cid-bbe6dxrz]{flex-direction:column;gap:.15rem}}
+</style></head> <body class="screen-flicker"> <!-- Particle canvas --> <canvas id="particle-canvas"></canvas> <!-- CRT effects --> <div class="scanlines"></div> <div class="crt-vignette"></div> <!-- Custom cursor --> <div class="cursor" id="cursor"></div> <div class="cursor-dot" id="cursor-dot"></div> <header data-astro-cid-dmqpwcec> <nav data-astro-cid-dmqpwcec> <a href="/" class="nav-brand" data-astro-cid-dmqpwcec> <span class="brand-user" data-astro-cid-dmqpwcec>bradeac</span><span class="brand-at" data-astro-cid-dmqpwcec>@</span><span class="brand-host" data-astro-cid-dmqpwcec>portfolio</span><span class="brand-colon" data-astro-cid-dmqpwcec>:</span><span class="brand-path" data-astro-cid-dmqpwcec>~</span><span class="brand-dollar" data-astro-cid-dmqpwcec>$</span> </a> <div class="nav-links" data-astro-cid-dmqpwcec> <a href="/" class="nav-link glitch-hover active" data-astro-cid-dmqpwcec> <span class="nav-prefix" data-astro-cid-dmqpwcec>cd </span>home </a><a href="/products" class="nav-link glitch-hover" data-astro-cid-dmqpwcec> <span class="nav-prefix" data-astro-cid-dmqpwcec>cd </span>products </a><a href="/projects" class="nav-link glitch-hover" data-astro-cid-dmqpwcec> <span class="nav-prefix" data-astro-cid-dmqpwcec>cd </span>projects </a><a href="/blog" class="nav-link glitch-hover" data-astro-cid-dmqpwcec> <span class="nav-prefix" data-astro-cid-dmqpwcec>cd </span>blog </a><a href="/cv" class="nav-link glitch-hover" data-astro-cid-dmqpwcec> <span class="nav-prefix" data-astro-cid-dmqpwcec>cd </span>cv </a> <button id="theme-toggle" aria-label="Toggle theme" data-astro-cid-x3pjskd3> <span class="icon-sun" data-astro-cid-x3pjskd3> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-x3pjskd3> <circle cx="12" cy="12" r="5" data-astro-cid-x3pjskd3></circle><line x1="12" y1="1" x2="12" y2="3" data-astro-cid-x3pjskd3></line><line x1="12" y1="21" x2="12" y2="23" data-astro-cid-x3pjskd3></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" data-astro-cid-x3pjskd3></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" data-astro-cid-x3pjskd3></line><line x1="1" y1="12" x2="3" y2="12" data-astro-cid-x3pjskd3></line><line x1="21" y1="12" x2="23" y2="12" data-astro-cid-x3pjskd3></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" data-astro-cid-x3pjskd3></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" data-astro-cid-x3pjskd3></line> </svg> </span> <span class="icon-moon" data-astro-cid-x3pjskd3> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-x3pjskd3> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" data-astro-cid-x3pjskd3></path> </svg> </span> </button>  <script>
+  (function () {
+    const theme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('#theme-toggle');
+      if (!btn) return;
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  })();
+</script> </div> </nav> </header> <main>  <section class="hero-wrap" data-astro-cid-bbe6dxrz> <div class="hero" data-astro-cid-bbe6dxrz> <div class="terminal-header" data-astro-cid-bbe6dxrz> <span class="terminal-dot red" data-astro-cid-bbe6dxrz></span> <span class="terminal-dot amber" data-astro-cid-bbe6dxrz></span> <span class="terminal-dot green" data-astro-cid-bbe6dxrz></span> <span class="terminal-header-title" data-astro-cid-bbe6dxrz>bradeac@portfolio ~ </span> </div> <div class="terminal-body" id="terminal-body" data-astro-cid-bbe6dxrz> <!-- Boot sequence built by JS --> <h1 class="hero-name-sr" data-astro-cid-bbe6dxrz>Camil Bradea</h1> </div> <script id="socials-data" type="application/json">[{"url":"https://github.com/bradeac","label":"github"},{"url":"https://x.com/bradeacamil","label":"x / twitter"},{"url":"https://www.linkedin.com/in/bradeac/","label":"linkedin"},{"url":"https://codepen.io/bradeac","label":"codepen"},{"url":"mailto:bradeacamil@gmail.com","label":"email"}]</script> <script id="products-data" type="application/json">[{"name":"jobAIssistant","id":"jobaissistant","description":"AI-powered job application tracker. Never lose track of another job application."},{"name":"SoundScrub","id":"soundscrub","description":"Remove any unwanted sound from your videos."},{"name":"MPM (Music Playlist Manager)","id":"mpm","description":"Track deleted songs, find duplicates, and manage your YouTube playlists."}]</script> <script id="projects-data" type="application/json">[{"name":"DGI Screener","url":"https://dgi-screener.bradeac.dev/","description":"Dividend growth investing screener for filtering and analyzing stocks."},{"name":"ETF Investment Comparison Calculator","url":"https://etfs.bradeac.dev/","description":"Compare accumulating vs distributing ETFs across different tax scenarios and time horizons."},{"name":"Eye Training App","url":"https://eyes.bradeac.dev/","description":"Simple eye training exercises to reduce strain and improve focus."}]</script> <script id="open-source-data" type="application/json">[{"name":"Do I Know This Artist","url":"https://do-i-know-this-artist.bradeac.dev/","description":"Search through your Youtube playlists for an artist or track."},{"name":"useGapi","url":"https://github.com/bradeac/useGapi","description":"React Hook for using Gapi (Google's SignIn JS auth client)."},{"name":"AWS CLI Docker","url":"https://github.com/bradeac/aws-cli-docker","description":"Minimal Docker image containing AWS CLI."},{"name":"SuperGenPass Chrome Extension","url":"https://github.com/bradeac/supergenpass-chrome-extension","description":"Tiny Chrome Extension for SuperGenPass, an alternative to the bookmarklet."},{"name":"CryptoArbitrageData","url":"https://github.com/bradeac/CryptoArbitrageData","description":"Gets prices of arbitrable symbols from chosen exchanges, calculates differences, pushes to MongoDB."}]</script> <script id="blog-data" type="application/json">[{"title":"Hello World"}]</script> </div> </section>  <script>
+(function() {
+  const termBody = document.getElementById('terminal-body');
+  const socialsJSON = document.getElementById('socials-data');
+  const productsJSON = document.getElementById('products-data');
+  const projectsJSON = document.getElementById('projects-data');
+  const openSourceJSON = document.getElementById('open-source-data');
+  const blogJSON = document.getElementById('blog-data');
+  if (!termBody) return;
+
+  const asciiLines = [
+    "  ____                _ _   ____                _",
+    " / ___|__ _ _ __ ___ (_) | | __ ) _ __ __ _  __| | ___  __ _",
+    "| |   / _` | '_ ` _ \\| | | |  _ \\| '__/ _` |/ _` |/ _ \\/ _` |",
+    "| |__| (_| | | | | | | | | | |_) | | | (_| | (_| |  __/ (_| |",
+    " \\____\\__,_|_| |_| |_|_|_| |____/|_|  \\__,_|\\__,_|\\___|\\__,_|",
+  ];
+
+  /* ====== HELPERS ====== */
+  function createEl(tag, className, html) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (html) el.innerHTML = html;
+    termBody.appendChild(el);
+    return el;
+  }
+
+  function typeCommand(cmdText) {
+    return new Promise((resolve) => {
+      const line = createEl('div', 'cmd-line');
+      const prompt = document.createElement('span');
+      prompt.className = 'prompt';
+      prompt.textContent = '$';
+      const cmd = document.createElement('span');
+      cmd.className = 'cmd';
+      const cursor = document.createElement('span');
+      cursor.className = 'block-cursor blink';
+      cursor.textContent = '_';
+      line.appendChild(prompt);
+      line.appendChild(cmd);
+      line.appendChild(cursor);
+
+      let i = 0;
+      function tick() {
+        if (i < cmdText.length) {
+          cmd.textContent = cmdText.slice(0, i + 1);
+          i++;
+          setTimeout(tick, 40 + Math.random() * 30);
+        } else {
+          cursor.remove();
+          resolve();
+        }
+      }
+      tick();
+    });
+  }
+
+  function showOutput(text) {
+    const el = createEl('p', 'cmd-output');
+    el.textContent = text;
+  }
+
+  function showAscii() {
+    return new Promise((resolve) => {
+      const pre = createEl('pre', 'hero-ascii');
+      pre.setAttribute('aria-label', 'Camil Bradea');
+      let idx = 0;
+      function revealLine() {
+        if (idx < asciiLines.length) {
+          pre.textContent = asciiLines.slice(0, idx + 1).join('\n');
+          idx++;
+          setTimeout(revealLine, 60);
+        } else {
+          resolve();
+        }
+      }
+      revealLine();
+    });
+  }
+
+  function showSocials() {
+    const wrap = createEl('div', 'social-commands');
+    if (socialsJSON) {
+      const socials = JSON.parse(socialsJSON.textContent);
+      socials.forEach(s => {
+        const a = document.createElement('a');
+        a.href = s.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'social-cmd glitch-hover';
+        a.textContent = s.label;
+        wrap.appendChild(a);
+      });
+    }
+  }
+
+  function showProducts() {
+    const wrap = createEl('div', 'product-list');
+    if (productsJSON) {
+      const products = JSON.parse(productsJSON.textContent);
+      products.forEach(p => {
+        const a = document.createElement('a');
+        a.href = '/products/' + p.id;
+        a.className = 'product-item';
+        a.innerHTML = '<span class="prompt-dim">&gt;</span> <span class="product-name glitch-hover">' + p.name + '</span> <span class="product-desc">— ' + p.description + '</span>';
+        wrap.appendChild(a);
+      });
+    }
+  }
+
+  function showInputLine() {
+    const line = createEl('div', 'input-line');
+    line.id = 'input-line';
+    const prompt = document.createElement('span');
+    prompt.className = 'prompt';
+    prompt.textContent = '$';
+    const inputWrap = document.createElement('span');
+    inputWrap.className = 'input-wrap';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'terminal-input';
+    input.className = 'terminal-input';
+    input.autocomplete = 'off';
+    input.spellcheck = false;
+    input.autocorrect = 'off';
+    input.autocapitalize = 'off';
+    input.setAttribute('inputmode', 'text');
+    inputWrap.appendChild(input);
+    line.appendChild(prompt);
+    line.appendChild(inputWrap);
+    setupInput(input, line);
+    input.focus();
+  }
+
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  /* ====== BOOT SEQUENCE ====== */
+  async function boot() {
+    await wait(300);
+
+    await typeCommand('whoami');
+    await wait(150);
+    await showAscii();
+    createEl('div', 'whoami-info', '<span class="info-key">ROLE</span>Senior Full-stack Engineer');
+    createEl('div', 'whoami-info', '<span class="info-key">LOC</span>Timisoara, Romania');
+    createEl('div', 'whoami-info', '<span class="info-key">STACK</span>TypeScript · Node · React · Laravel · Docker · AWS');
+    await wait(300);
+
+    await typeCommand('ls socials');
+    await wait(100);
+    showSocials();
+    await wait(400);
+
+    await typeCommand('ls products');
+    await wait(100);
+    showProducts();
+    await wait(400);
+
+    createEl('p', 'cmd-hint', 'Type "help" for available commands.');
+
+    showInputLine();
+
+    // Enable scrolling for user commands
+    termBody.style.overflowY = 'auto';
+  }
+
+  const navEntry = performance.getEntriesByType('navigation')[0];
+  const isReload = navEntry && navEntry.type === 'reload';
+  const savedState = sessionStorage.getItem('terminal-state');
+  if (savedState && !isReload) {
+    termBody.innerHTML = savedState;
+    termBody.style.overflowY = 'auto';
+    const savedScroll = sessionStorage.getItem('terminal-scroll');
+    if (savedScroll) {
+      termBody.scrollTop = parseInt(savedScroll);
+    }
+    const input = document.getElementById('terminal-input');
+    const inputLine = document.getElementById('input-line');
+    if (input && inputLine) {
+      setupInput(input, inputLine);
+      input.focus();
+    }
+  } else {
+    boot();
+  }
+
+  /* ====== INTERACTIVE TERMINAL ====== */
+  function setupInput(input, inputLine) {
+    let termFocused = false;
+    const history = [];
+    let historyIndex = -1;
+
+    input.addEventListener('focus', () => { termFocused = true; });
+    input.addEventListener('blur', () => { termFocused = false; });
+    termBody.addEventListener('click', () => input.focus());
+
+    const commands = {
+    'help': () => 'HELP',
+    'ls products': () => 'LS_PRODUCTS',
+    'cd products': () => { navigate('/products'); return ['Navigating to products...']; },
+    'ls projects': () => 'LS_PROJECTS',
+    'cd projects': () => { navigate('/projects'); return ['Navigating to projects...']; },
+    'ls blog': () => 'LS_BLOG',
+    'cd blog': () => { navigate('/blog'); return ['Navigating to blog...']; },
+    'cd cv': () => { navigate('/cv'); return ['Navigating to CV...']; },
+    'cat cv': () => 'CAT_CV',
+    'cd home': () => { navigate('/'); return ['Navigating home...']; },
+    'cd ~': () => { navigate('/'); return ['Navigating home...']; },
+    'cd /': () => { navigate('/'); return ['Navigating home...']; },
+    'whoami': () => 'WHOAMI',
+    'cat role.txt': () => ['Senior Full-stack Engineer'],
+    'cat location.txt': () => ['Building things on the web from Timisoara, Romania.'],
+    'contact': () => 'CONTACT',
+    'ls socials': () => ['github  twitter  linkedin  codepen  email'],
+    'echo hello': () => ['hello'],
+    'clear': () => 'CLEAR',
+
+    // Destructive easter eggs
+    'sudo rm -rf /': () => 'NUKE',
+    'sudo rm -rf .': () => 'NUKE',
+    'sudo rm -rf *': () => 'NUKE',
+    'sudo rm -rf ~': () => 'NUKE',
+    'rm -rf /': () => ['Permission denied. Thank god.'],
+    'rm -rf *': () => ['Calm down, Satan.'],
+    'rm -rf .': () => ['You want to delete my portfolio? Rude.'],
+    'rm -rf ~': () => ['That\'s my home directory. I live there.'],
+    'rm -rf --no-preserve-root /': () => ['You really know your flags. Still no.'],
+    ':(){ :|:& };:': () => ['Fork bomb? On a static site? Bold.'],
+    'format c:': () => ['Sir, this is a Linux terminal.'],
+    'del /f /s /q c:\\*': () => ['Wrong OS, but I appreciate the energy.'],
+    'dd if=/dev/zero of=/dev/sda': () => ['Whoa whoa whoa. We don\'t do that here.'],
+    'dd if=/dev/urandom of=/dev/sda': () => ['Random data to disk? Creative destruction.'],
+    'mkfs.ext4 /dev/sda': () => ['I also like to live dangerously.'],
+    'mkfs.ext4 /dev/sda1': () => ['Formatting partitions now? Thorough.'],
+    'chmod -r 777 /': () => ['Security has left the chat.'],
+    'chmod 000 /': () => ['And just like that, nobody can do anything.'],
+    'chown -r nobody /': () => ['Nobody owns anything. Communism achieved.'],
+    'mv / /dev/null': () => ['The entire filesystem? Into the void? Poetic.'],
+    'cat /dev/urandom': () => ['I\'m not printing infinity for you.'],
+    'yes': () => ['y y y y y y y y y y y y y y y y y y... ok I\'ll stop.'],
+    'shutdown': () => ['*pretends to shut down* ...still here.'],
+    'shutdown -h now': () => ['Nice try with the flags. Still no.'],
+    'poweroff': () => ['You have no power here. Literally.'],
+    'halt': () => ['You can\'t halt what never truly started.'],
+    'init 0': () => ['Runlevel 0? In this economy?'],
+    'reboot': () => { location.reload(); return ['Rebooting...']; },
+    'kill -9 -1': () => ['You just tried to kill everything. Everything.'],
+    'kill -9 0': () => ['Killing your own process group. Self-destructive.'],
+    'killall': () => ['Kill all what? Be specific with your violence.'],
+    'pkill -9 -u root': () => ['Root doesn\'t go down that easy.'],
+    'exit': () => ['There is no exit. Only portfolio.'],
+    'logout': () => ['You can check out any time you like, but you can never leave.'],
+    'quit': () => ['Quitters never win.'],
+    'q': () => ['This isn\'t vim. Or is it?'],
+    ':q': () => ['Not vim. But respect for trying.'],
+    ':q!': () => ['You seem stressed.'],
+    ':wq': () => ['Nothing to save here.'],
+    'drop table': () => ['No tables were harmed in the making of this site.'],
+    'drop table users': () => ['Bobby Tables sends his regards.'],
+    'drop database': () => ['What database? This is pure HTML, baby.'],
+    'select * from users': () => ['SQL injection on a static site. Bold strategy.'],
+    'sudo su': () => ['You\'re already root in my heart.'],
+    'su root': () => ['Access denied. But nice try, hacker.'],
+    'sudo': () => ['sudo what?'],
+    'sudo !!': () => ['Nice try. I don\'t remember what you did either.'],
+    'vim': () => ['Good luck exiting.'],
+    'emacs': () => ['I see you chose violence.'],
+    'nano': () => ['Finally, someone reasonable.'],
+    'neovim': () => ['Ah, a person of culture.'],
+    'nvim': () => ['Ah, a person of culture.'],
+    'code .': () => ['VS Code can\'t save you here.'],
+    'curl': () => ['Curl what? The internet is big.'],
+    'wget': () => ['You wouldn\'t download a portfolio.'],
+    'ssh root@localhost': () => ['Connection refused. As it should be.'],
+    'telnet': () => ['It\'s not 1995 anymore.'],
+    'ping localhost': () => ['127.0.0.1 is alive. You\'re welcome.'],
+    'traceroute': () => ['All roads lead here.'],
+    'nmap': () => ['Port scanning my portfolio? Flattering.'],
+    'top': () => ['Process 1: portfolio.exe — CPU: 100% vibes'],
+    'htop': () => ['Fancy. But still just vibes in here.'],
+    'ps aux': () => ['PID 1: portfolio (running since forever)'],
+    'free': () => ['All memory dedicated to looking cool.'],
+    'df -h': () => ['/dev/portfolio  ∞G  0G  ∞G  0% /'],
+    'uptime': () => ['Up since you opened this tab. You\'re welcome.'],
+    'whoami --help': () => ['You\'re beyond help.'],
+    'man': () => ['No manual entry for existential dread.'],
+    'man man': () => ['How meta of you.'],
+    'history': () => ['Nice try. Your secrets are safe.'],
+    'pwd': () => ['/home/visitor/camil-bradea-portfolio'],
+    'cd ..': () => ['You\'re already at the top. There is no above.'],
+    'ls -la': () => ['drwxr-xr-x  vibes  vibes  4096  portfolio/'],
+    'cat /etc/passwd': () => ['root:x:0:0:just a portfolio, relax:/root:/bin/bash'],
+    'echo $PATH': () => ['/usr/bin/talent:/usr/bin/coffee:/usr/bin/code'],
+    'date': () => [new Date().toString()],
+    'cal': () => ['You have mass. Therefore you are a calendar.'],
+    'cowsay': () => ['The cow is on vacation.'],
+    'sl': () => ['No train here. Just good code.'],
+    'fortune': () => ['You will hire this developer. The stars have spoken.'],
+    'make': () => ['make: *** No targets. Just vibes.'],
+    'make install': () => ['Portfolio already installed in your brain.'],
+    'apt install': () => ['This isn\'t Ubuntu. This is art.'],
+    'brew install': () => ['Homebrew? On a website? I admire the confidence.'],
+    'npm install': () => ['node_modules would be bigger than this entire site.'],
+    'pip install': () => ['Wrong ecosystem. We use semicolons here.'],
+    'cargo build': () => ['Rust fans are everywhere. Respect.'],
+    'go run': () => ['Go run where? We\'re already here.'],
+    'python': () => ['>>> print("this is javascript territory")'],
+    'node': () => ['You\'re already in a JS runtime. Inception.'],
+    'git push --force': () => ['To where? This is production. Calm down.'],
+    'git reset --hard': () => ['Resetting... just kidding, nothing changed.'],
+    'docker rm -f $(docker ps -aq)': () => ['No containers were harmed. There are none.'],
+  };
+
+    window.addEventListener('beforeunload', () => {
+    sessionStorage.setItem('terminal-state', termBody.innerHTML);
+    sessionStorage.setItem('terminal-scroll', termBody.scrollTop.toString());
+  });
+
+    function navigate(path) {
+    setTimeout(() => window.location.href = path, 600);
+  }
+
+    function processCommand(cmd) {
+    const trimmed = cmd.trim().toLowerCase();
+    if (!trimmed) return;
+
+    // Move input line content to history
+    const historyLine = document.createElement('div');
+    historyLine.className = 'term-history user-generated';
+    historyLine.innerHTML = '<span class="prompt">$</span> <span class="cmd">' + escapeHtml(cmd.trim()) + '</span>';
+
+    // Insert history before the input line
+    inputLine.parentNode.insertBefore(historyLine, inputLine);
+
+    // Clear input
+    input.value = '';
+
+    // Find matching command
+    const handler = commands[trimmed];
+
+    if (handler) {
+      const result = handler();
+      if (result === 'CLEAR') {
+        clearTerminal();
+        return;
+      }
+      if (result === 'HELP') {
+        const heading = document.createElement('div');
+        heading.className = 'help-heading user-generated';
+        heading.textContent = 'Available commands:';
+        inputLine.parentNode.insertBefore(heading, inputLine);
+        const lines = [
+          '  ls products     — list products',
+          '  ls projects     — list projects',
+          '  ls blog         — list blog posts',
+          '  ls socials      — list social links',
+          '  cd products     — go to products',
+          '  cd projects     — go to projects',
+          '  cd blog         — go to blog',
+          '  cat cv          — quick CV overview',
+          '  cd cv           — view full CV',
+          '  cd home         — go home',
+          '  whoami          — who am I?',
+          '  contact         — get in touch',
+          '  clear           — clear terminal',
+          '  help            — show this message',
+        ];
+        lines.forEach(l => {
+          const el = document.createElement('div');
+          el.className = 'term-response success user-generated';
+          el.textContent = l;
+          inputLine.parentNode.insertBefore(el, inputLine);
+        });
+        const hint = document.createElement('p');
+        hint.className = 'cmd-hint user-generated';
+        hint.textContent = 'Some commands aren\'t listed. Try things.';
+        inputLine.parentNode.insertBefore(hint, inputLine);
+        scrollTerminal();
+        return;
+      }
+      if (result === 'NUKE') {
+        nukeScreen();
+        return;
+      }
+      if (result === 'WHOAMI') {
+        // Insert ASCII + info before input line
+        const pre = document.createElement('pre');
+        pre.className = 'hero-ascii user-generated';
+        pre.setAttribute('aria-label', 'Camil Bradea');
+        pre.textContent = asciiLines.join('\n');
+        inputLine.parentNode.insertBefore(pre, inputLine);
+        [
+          '<span class="info-key">ROLE</span>Senior Full-stack Engineer',
+          '<span class="info-key">LOC</span>Timisoara, Romania',
+          '<span class="info-key">STACK</span>TypeScript · Node · React · Laravel · Docker · AWS',
+        ].forEach(html => {
+          const el = document.createElement('div');
+          el.className = 'whoami-info user-generated';
+          el.innerHTML = html;
+          inputLine.parentNode.insertBefore(el, inputLine);
+        });
+        scrollTerminal();
+        return;
+      }
+      if (result === 'CAT_CV') {
+        const cvLines = [
+          '<span class="cv-name">Camil Bradea</span> — Senior Full-stack Engineer',
+          '<span class="cv-dim">7 years · React, TypeScript, Node.js, AWS, Docker</span>',
+          '',
+          '<span class="cv-heading">EXPERIENCE</span>',
+          '  MindWalk Corp. — Senior Software Engineer — 2025—now',
+          '  Uptomic — Senior Full-stack Engineer — 2025',
+          '  Intel — Senior Front-end Engineer — 2023—2025',
+          '  EDIS — Senior Front-end Engineer — 2022—2023',
+          '  [e-spres-oh] — Senior Full-stack Engineer — 2020—2022',
+          '  Haufe Group — Full-stack Engineer — 2018—2020',
+          '  Haufe Group — Software Engineer CI/CD — 2016—2018',
+          '  Haufe Group — Junior Software Engineer — 2015—2016',
+          '',
+          '<span class="cv-heading">EDUCATION</span>',
+          '  Politehnica University of Timișoara — BEng, Systems Engineering',
+          '',
+          '<span class="cv-dim">Full CV → </span><a href="/cv">bradeac.dev/cv</a>',
+        ];
+        cvLines.forEach(line => {
+          const el = document.createElement('div');
+          el.className = 'term-response user-generated' + (line === '' ? ' cv-spacer' : '');
+          el.innerHTML = line || '&nbsp;';
+          inputLine.parentNode.insertBefore(el, inputLine);
+        });
+        scrollTerminal();
+        return;
+      }
+      if (result === 'CONTACT') {
+        const el = document.createElement('div');
+        el.className = 'term-response success user-generated';
+        el.innerHTML = '<a href="mailto:bradeacamil@gmail.com">bradeacamil@gmail.com</a>';
+        inputLine.parentNode.insertBefore(el, inputLine);
+        scrollTerminal();
+        return;
+      }
+      if (result === 'LS_PRODUCTS') {
+        const wrap = document.createElement('div');
+        wrap.className = 'product-list user-generated';
+        const data = productsJSON ? JSON.parse(productsJSON.textContent) : [];
+        data.forEach(p => {
+          const a = document.createElement('a');
+          a.href = '/products/' + p.id;
+          a.className = 'product-item';
+          a.innerHTML = '<span class="prompt-dim">&gt;</span> <span class="product-name glitch-hover">' + p.name + '</span> <span class="product-desc">— ' + p.description + '</span>';
+          wrap.appendChild(a);
+        });
+        inputLine.parentNode.insertBefore(wrap, inputLine);
+        scrollTerminal();
+        return;
+      }
+      if (result === 'LS_PROJECTS') {
+        const wrap = document.createElement('div');
+        wrap.className = 'product-list user-generated';
+        const data = projectsJSON ? JSON.parse(projectsJSON.textContent) : [];
+        const osData = openSourceJSON ? JSON.parse(openSourceJSON.textContent) : [];
+        const dikta = osData.find(p => p.name.toLowerCase().includes('know'));
+        [...data, ...(dikta ? [dikta] : [])].forEach(p => {
+          const a = document.createElement('a');
+          a.href = p.url || '#';
+          if (p.url) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+          a.className = 'product-item';
+          a.innerHTML = '<span class="prompt-dim">&gt;</span> <span class="product-name glitch-hover">' + p.name + '</span> <span class="product-desc">— ' + p.description + '</span>';
+          wrap.appendChild(a);
+        });
+        inputLine.parentNode.insertBefore(wrap, inputLine);
+        const hint = document.createElement('p');
+        hint.className = 'cmd-hint user-generated';
+        hint.textContent = 'Run "cd projects" to see them all.';
+        inputLine.parentNode.insertBefore(hint, inputLine);
+        scrollTerminal();
+        return;
+      }
+      if (result === 'LS_BLOG') {
+        const wrap = document.createElement('div');
+        wrap.className = 'product-list user-generated';
+        const data = blogJSON ? JSON.parse(blogJSON.textContent) : [];
+        data.forEach(p => {
+          const a = document.createElement('a');
+          a.href = '/blog/' + p.slug;
+          a.className = 'product-item';
+          a.innerHTML = '<span class="prompt-dim">&gt;</span> <span class="product-name glitch-hover">' + p.title + '</span>';
+          wrap.appendChild(a);
+        });
+        inputLine.parentNode.insertBefore(wrap, inputLine);
+        scrollTerminal();
+        return;
+      }
+      result.forEach((line, i) => {
+        setTimeout(() => {
+          const el = document.createElement('div');
+          el.className = 'term-response success user-generated';
+          el.textContent = line;
+          inputLine.parentNode.insertBefore(el, inputLine);
+          scrollTerminal();
+        }, i * 60);
+      });
+    } else {
+      const el = document.createElement('div');
+      el.className = 'term-response error user-generated';
+      el.textContent = 'command not found: ' + escapeHtml(trimmed) + '. Type "help" for available commands.';
+      inputLine.parentNode.insertBefore(el, inputLine);
+    }
+
+    scrollTerminal();
+  }
+
+    function nukeScreen() {
+    // Show dramatic deletion messages
+    const msgs = [
+      'Removing /usr...',
+      'Removing /home...',
+      'Removing /etc...',
+      'Removing /bin...',
+      'Removing /lib...',
+      'Removing /var...',
+      'Removing /opt...',
+      'Removing /var/hopes-and-dreams...',
+      '',
+      'Just kidding. Everything is fine.',
+    ];
+
+    // Glitch the whole page
+    document.body.style.animation = 'none';
+    document.body.offsetHeight; // reflow
+    document.body.style.animation = 'nukeGlitch 0.15s ease 4';
+
+    msgs.forEach((msg, i) => {
+      setTimeout(() => {
+        const el = document.createElement('div');
+        el.className = 'term-response user-generated ' + (i < msgs.length - 1 && msg ? 'error' : (i === msgs.length - 1 ? 'success' : ''));
+        el.textContent = msg;
+        inputLine.parentNode.insertBefore(el, inputLine);
+        scrollTerminal();
+      }, i * 350);
+    });
+  }
+
+    function clearTerminal() {
+    const toRemove = termBody.querySelectorAll('.user-generated');
+    toRemove.forEach(el => el.remove());
+  }
+
+    function scrollTerminal() {
+    // Keep terminal scrolled to bottom if it overflows
+    termBody.scrollTop = termBody.scrollHeight;
+  }
+
+    function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+
+    // All completable command strings
+    const completions = Object.keys(commands);
+
+    function tabComplete() {
+      const val = input.value.trim().toLowerCase();
+      if (!val) return;
+      const matches = completions.filter(c => c.startsWith(val) && c !== val);
+      if (matches.length === 1) {
+        input.value = matches[0];
+      } else if (matches.length > 1) {
+        // Find longest common prefix
+        let prefix = matches[0];
+        for (let i = 1; i < matches.length; i++) {
+          while (!matches[i].startsWith(prefix)) {
+            prefix = prefix.slice(0, -1);
+          }
+        }
+        if (prefix.length > val.length) {
+          input.value = prefix;
+          } else {
+          // Show possible completions
+          const el = document.createElement('div');
+          el.className = 'term-response user-generated';
+          el.textContent = matches.join('  ');
+          inputLine.parentNode.insertBefore(el, inputLine);
+          scrollTerminal();
+        }
+      }
+    }
+
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && termFocused) {
+        e.preventDefault();
+        tabComplete();
+      }
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const val = input.value.trim();
+        if (val) {
+          history.push(val);
+          historyIndex = history.length;
+        }
+        processCommand(input.value);
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (history.length && historyIndex > 0) {
+          historyIndex--;
+          input.value = history[historyIndex];
+          }
+      }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (historyIndex < history.length - 1) {
+          historyIndex++;
+          input.value = history[historyIndex];
+        } else {
+          historyIndex = history.length;
+          input.value = '';
+        }
+      }
+    });
+  } // end setupInput
+
+})();
+</script>  </main> <footer data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-left" data-astro-cid-sz7xmlte> <span class="status-dot" data-astro-cid-sz7xmlte></span> <span class="footer-status" data-astro-cid-sz7xmlte>[session active]</span> <span class="footer-copy" data-astro-cid-sz7xmlte>Camil Bradea &copy; 2026</span> </div> <div class="footer-right" data-astro-cid-sz7xmlte> <a href="https://github.com/bradeac" target="_blank" rel="noopener noreferrer" class="footer-link glitch-hover" data-astro-cid-sz7xmlte> github </a><a href="https://x.com/bradeacamil" target="_blank" rel="noopener noreferrer" class="footer-link glitch-hover" data-astro-cid-sz7xmlte> x / twitter </a><a href="https://www.linkedin.com/in/bradeac/" target="_blank" rel="noopener noreferrer" class="footer-link glitch-hover" data-astro-cid-sz7xmlte> linkedin </a><a href="https://codepen.io/bradeac" target="_blank" rel="noopener noreferrer" class="footer-link glitch-hover" data-astro-cid-sz7xmlte> codepen </a><a href="/cdn-cgi/l/email-protection#accedecdc8c9cdcfcdc1c5c0eccbc1cdc5c082cfc3c1" target="_blank" rel="noopener noreferrer" class="footer-link glitch-hover" data-astro-cid-sz7xmlte> email </a> </div> </div> </footer> <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    (function() {
+      /* ====== CURSOR ====== */
+      const cursor = document.getElementById('cursor');
+      const dot = document.getElementById('cursor-dot');
+      if (!cursor || !dot) return;
+
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.left = mouseX + 'px';
+        dot.style.top = mouseY + 'px';
+        if (!cursor.classList.contains('visible')) {
+          cursor.classList.add('visible');
+          dot.classList.add('visible');
+        }
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('visible');
+        dot.classList.remove('visible');
+      });
+
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      document.addEventListener('mouseover', (e) => {
+        if (e.target.closest('a, button, .card, .social-link, .nav-link')) {
+          cursor.classList.add('hover');
+        }
+      });
+      document.addEventListener('mouseout', (e) => {
+        if (e.target.closest('a, button, .card, .social-link, .nav-link')) {
+          cursor.classList.remove('hover');
+        }
+      });
+
+      /* ====== SCROLL REVEAL ====== */
+      const revealEls = document.querySelectorAll('.reveal');
+      if (revealEls.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+      }
+
+      /* ====== TEXT SCRAMBLE ====== */
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!?/\\|{}[]<>';
+
+      function scrambleText(el) {
+        const original = el.getAttribute('data-scramble') || el.textContent;
+        el.setAttribute('data-scramble', original);
+        const length = original.length;
+        let iteration = 0;
+        const maxIterations = length * 3;
+
+        const interval = setInterval(() => {
+          el.textContent = original
+            .split('')
+            .map((char, i) => {
+              if (char === ' ') return ' ';
+              if (i < iteration / 3) return original[i];
+              return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join('');
+
+          iteration++;
+          if (iteration >= maxIterations) {
+            el.textContent = original;
+            clearInterval(interval);
+          }
+        }, 30);
+      }
+
+      const scrambleEls = document.querySelectorAll('[data-scramble]');
+      if (scrambleEls.length > 0) {
+        const scrambleObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              scrambleText(entry.target);
+              scrambleObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        scrambleEls.forEach(el => scrambleObserver.observe(el));
+      }
+
+      /* ====== MAGNETIC CARD TILT ====== */
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          card.style.transform = `translateY(-4px) rotateX(${-y * 0.02}deg) rotateY(${x * 0.02}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    })();
+    </script> <script>
+    (function() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      let width, height;
+      let mouseX = -1000, mouseY = -1000;
+      let particles = [];
+      function getColor() {
+        return getComputedStyle(document.documentElement).getPropertyValue('--green').trim();
+      }
+      let color = getColor();
+      const COUNT = 60;
+      const CONN = 130;
+      const MOUSE_R = 180;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        for (let i = 0; i < COUNT; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            size: Math.random() * 1.5 + 0.5,
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          const dx = p.x - mouseX;
+          const dy = p.y - mouseY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MOUSE_R) {
+            const force = (MOUSE_R - dist) / MOUSE_R;
+            p.vx += (dx / dist) * force * 0.6;
+            p.vy += (dy / dist) * force * 0.6;
+          }
+          p.vx *= 0.98;
+          p.vy *= 0.98;
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const cdx = p.x - p2.x;
+            const cdy = p.y - p2.y;
+            const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
+            if (cdist < CONN) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = color;
+              ctx.globalAlpha = (1 - cdist / CONN) * 0.2;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+              ctx.globalAlpha = 1;
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      document.addEventListener('mouseleave', () => {
+        mouseX = -1000;
+        mouseY = -1000;
+      });
+
+      new MutationObserver(() => { color = getColor(); }).observe(
+        document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }
+      );
+
+      window.addEventListener('resize', () => { resize(); createParticles(); });
+      resize();
+      createParticles();
+      draw();
+    })();
+    </script> </body> </html>

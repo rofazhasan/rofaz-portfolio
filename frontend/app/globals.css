@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0f0a;
+  --bg-secondary: #0f160f;
+  --bg-card: #0d130d;
+  --bg-card-hover: #111a11;
+  --border: #1a2e1a;
+  --green: #00ff41;
+  --green-glow: rgba(0, 255, 65, .15);
+  --cyan: #05d9e8;
+  --text-bright: #f0f0f0;
+  --text: #d0d0d0;
+  --text-muted: #5a7a5a;
+  --text-dim: #2e4a2e;
+  --red: #ff3366;
+  --amber: #ffbb00;
+  --glow-text: 0 0 10px rgba(0,255,65,.5);
+  --scanline-opacity: 0.15;
+  --vignette-opacity: 0.02;
+  --canvas-opacity: 0.1;
+  --shadow-card-hover: 0 0 20px rgba(0, 255, 65, .1);
+}
+
+[data-theme='light'] {
+  --bg: #f0f2e8;
+  --bg-secondary: #e8ebe0;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f7ef;
+  --border: #c5d0c0;
+  --green: #00aa2a;
+  --green-glow: rgba(0, 170, 42, .1);
+  --cyan: #0099aa;
+  --text-bright: #0a0f0a;
+  --text: #1a1f1a;
+  --text-muted: #5a6a5a;
+  --text-dim: #a0b0a0;
+  --red: #cc1155;
+  --amber: #cc8800;
+  --glow-text: none;
+  --scanline-opacity: 0.015;
+  --vignette-opacity: 0.15;
+  --canvas-opacity: 0.6;
+  --shadow-card-hover: 0 4px 30px rgba(0, 0, 0, .1);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Fixed Shell Layout */
+.terminal-header {
+  height: 48px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 13, 20, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-main {
+  min-height: 100vh;
+  padding-top: 48px;
+  padding-bottom: 32px;
+}
+
+.terminal-footer {
+  height: 32px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 13, 20, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Deep Obsidian Support */
+.bg-obsidian {
+  background-color: #05070a;
+}
+
+.crt-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: repeating-linear-gradient(
+    rgba(18, 16, 16, 0) 0,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(18, 16, 16, 0) 100%
+  );
+  background-size: 100% 3px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.noise-layer {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Hide default cursor on desktop when using custom cursor */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+.glitch-text:hover {
+  animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); text-shadow: 0 0 0 transparent; }
+  20% { transform: translate(-2px, 2px); text-shadow: 2px 0 var(--neon-cyan), -2px 0 var(--neon-purple); }
+  40% { transform: translate(-2px, -2px); text-shadow: -2px 0 var(--neon-cyan), 2px 0 var(--neon-purple); }
+  60% { transform: translate(2px, 2px); text-shadow: 0 2px var(--neon-cyan), 0 -2px var(--neon-purple); }
+  80% { transform: translate(2px, -2px); text-shadow: -2px 0 var(--neon-cyan), 2px 0 var(--neon-purple); }
+  100% { transform: translate(0); text-shadow: 0 0 0 transparent; }
+}
+
+.terminal-window {
+  background: rgba(10, 13, 20, 0.7);
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+}
+
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.dotted-border-b {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+  background-size: 4px 1px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  padding-bottom: 2rem;
+}
+
+.dotted-border-r {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+  background-size: 1px 4px;
+  background-repeat: repeat-y;
+  background-position: right;
+}
+
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text-bright);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
