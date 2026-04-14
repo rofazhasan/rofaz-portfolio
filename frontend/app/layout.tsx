@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Outfit, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Syne, Outfit } from "next/font/google";
 import "./globals.css";
 import Chatbot from "../components/Chatbot";
 import ClientLayout from "./ClientLayout";
@@ -19,7 +19,6 @@ const jbMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "Md. Rofaz Hasan Rafiu | Portfolio",
   description: "Senior Full-Stack Engineer merging high-performance Rust backends with immersive Next.js frontends.",
@@ -33,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${syne.variable} ${outfit.variable} ${jbMono.variable} antialiased selection:bg-[#00ff41]/30 font-body bg-[var(--bg)] max-w-full overflow-x-hidden`}
+        className={`${syne.variable} ${outfit.variable} ${jbMono.variable} antialiased selection:bg-[#00ff41]/30 font-body bg-[var(--bg)] max-w-full overflow-x-hidden transition-colors duration-300`}
       >
         <ClientLayout>
           {children}
