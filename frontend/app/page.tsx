@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 import Link from 'next/link';
-import { Terminal, Cpu, Zap, Layers, ArrowUpRight, ChevronRight, Globe, Code2, Monitor } from "lucide-react";
+import { Terminal, Cpu, Zap, Layers, ChevronRight, Monitor, Play, RefreshCw } from "lucide-react";
 
 // --- CUSTOM BRAND ICONS (Stable) ---
 const GitHubIcon = ({ size = 20 }: { size?: number }) => (
@@ -14,11 +14,17 @@ const LinkedInIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
 );
 
+function GraduationCapIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+  );
+}
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
   },
 };
 
@@ -30,6 +36,85 @@ const itemVariants: Variants = {
     transition: { type: "spring", stiffness: 100, damping: 20 },
   },
 };
+
+function MainframeLogs() {
+  const [logs, setLogs] = useState<string[]>([
+    "BIOS CHECK... OK",
+    "ESTABLISHING SECURE CONNECTION...",
+    "FLUSHING DECRYPTION KERNEL REGISTRY...",
+    "INTEGRITY STATUS: 100% NOMINAL",
+    "MONITORING SYSTEM BUS FEED..."
+  ]);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const logPool = [
+      "SYNCHRONIZING LOCAL DATA CONSTELLATION...",
+      "COMPILING WEBGL SHADER BUFFERS...",
+      "RECONCILING ASYNC INVENTORY INDEXES...",
+      "REFRESHING NEURAL GRAPH NETWORK...",
+      "BUS ROUTE ACTIVE [LATENCY: 12ms]...",
+      "CLEAN CACHE ALLOCATION NOMINAL...",
+      "THREAD REGISTER OK. STANDBY FOR CALLS..."
+    ];
+
+    const interval = setInterval(() => {
+      const randLog = logPool[Math.floor(Math.random() * logPool.length)];
+      const ts = new Date().toLocaleTimeString();
+      setLogs(prev => [...prev.slice(-8), `[${ts}] ${randLog}`]);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  }, [logs]);
+
+  return (
+    <div 
+      ref={containerRef}
+      className="h-28 overflow-y-auto font-mono text-[8.5px] text-[var(--accent)]/50 border border-[var(--border-strong)] bg-black/40 p-4 rounded-2xl space-y-1.5 scrollbar-none"
+    >
+      {logs.map((log, idx) => (
+        <div key={idx} className="truncate select-none">
+          <span className="text-[var(--accent)]">&gt;&gt; </span>{log}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function CoreLoadDashboard() {
+  const [cores, setCores] = useState([45, 60, 20, 75]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCores(prev => prev.map(() => Math.floor(15 + Math.random() * 75)));
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="grid grid-cols-4 gap-4 border border-[var(--border-strong)] bg-black/40 p-6 rounded-2xl">
+      {cores.map((load, idx) => (
+        <div key={idx} className="flex flex-col items-center gap-3">
+          <div className="h-24 w-1.5 bg-[var(--border-strong)] rounded-full overflow-hidden relative flex flex-col justify-end">
+            <motion.div 
+              animate={{ height: `${load}%` }}
+              transition={{ type: "spring", stiffness: 120, damping: 12 }}
+              className="w-full bg-[var(--accent)] shadow-[0_0_8px_var(--glow)] rounded-full"
+            />
+          </div>
+          <span className="text-[8px] font-mono text-[var(--text-muted)] font-black">CORE0{idx}</span>
+          <span className="text-[9px] font-mono text-[var(--accent)] font-bold">{load}%</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function HomePage() {
   const [bootTime] = useState(new Date().toLocaleTimeString());
@@ -79,25 +164,31 @@ export default function HomePage() {
             </motion.div>
          </div>
 
-         {/* SYSTEM TELEMETRY */}
-         <div className="lg:col-span-4 hidden lg:flex flex-col gap-8">
+         {/* SYSTEM TELEMETRY (COCKPIT PANEL) */}
+         <div className="lg:col-span-4 hidden lg:flex flex-col gap-8 relative z-10">
             <motion.div variants={itemVariants} className="p-10 glass-panel rounded-[2rem] border-l-4 border-l-[var(--accent)] space-y-6 shadow-2xl">
                <div className="flex justify-between items-center text-[10px] font-mono font-black text-[var(--accent)] tracking-[0.3em] uppercase">
                   <span>Logic_Integrity</span>
                   <span>100% NOMINAL</span>
                </div>
-               <div className="h-1.5 bg-[var(--border-strong)] rounded-full overflow-hidden">
-                  <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 2, delay: 0.5 }} className="h-full bg-[var(--accent)] shadow-[0_0_15px_var(--glow)]" />
-               </div>
-               <div className="text-[9px] font-mono text-[var(--text-dim)] uppercase tracking-widest font-bold">Protocol: Secure_Kernel_v2.0</div>
+               
+               <CoreLoadDashboard />
+               
+               <div className="text-[9px] font-mono text-[var(--text-dim)] uppercase tracking-widest font-bold">Hardware Load: Simulated Thread Clusters</div>
             </motion.div>
 
             <motion.div variants={itemVariants} className="p-10 glass-panel rounded-[2rem] border-l-4 border-l-[var(--cyan)] space-y-6 shadow-2xl">
-                <div className="flex items-center gap-3 text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-widest font-black">
-                   <Monitor size={14} className="text-[var(--cyan)]" /> Session_Timestamp
+                <div className="flex justify-between items-center text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-widest font-black">
+                   <span className="flex items-center gap-2"><Monitor size={14} className="text-[var(--cyan)]" /> Session_Logs</span>
+                   <span>STABLE</span>
                 </div>
-                <div className="text-3xl font-mono text-[var(--text-bright)] font-black text-glow tracking-tighter">{bootTime}</div>
-                <p className="text-[10px] text-[var(--text-dim)] leading-relaxed uppercase font-bold tracking-widest">Architecting future nodes for global impact.</p>
+                
+                <MainframeLogs />
+                
+                <p className="text-[9.5px] text-[var(--text-dim)] leading-relaxed uppercase font-bold tracking-widest flex justify-between">
+                  <span>NODE: TGL_RAF_99</span>
+                  <span>TIME: {bootTime}</span>
+                </p>
             </motion.div>
          </div>
       </div>
@@ -105,7 +196,7 @@ export default function HomePage() {
       {/* STRATEGIC MODULES (SKILLS FOCUS) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-16">
          {[
-           { icon: <Code2 />, title: "Backend Core", desc: "Developing production-ready APIs with Python (FastAPI) and Node.js focused on microservices and distributed security.", color: "accent" },
+           { icon: <Cpu />, title: "Backend Core", desc: "Developing production-ready APIs with Python (FastAPI) and Node.js focused on microservices and distributed security.", color: "accent" },
            { icon: <Zap />, title: "Cloud Scale", desc: "Deploying high-integrity clusters on GCP using Docker, Kubernetes, and optimized NGINX reverse proxies.", color: "cyan" },
            { icon: <Layers />, title: "System Design", desc: "Architecting memory-safe CRUD generators and real-time synchronization hubs with PostgreSQL and Redis.", color: "accent" }
          ].map((module, i) => (
@@ -133,11 +224,5 @@ export default function HomePage() {
           <div className="h-[1px] w-full max-w-4xl bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent" />
       </motion.div>
     </motion.div>
-  );
-}
-
-function GraduationCapIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
   );
 }

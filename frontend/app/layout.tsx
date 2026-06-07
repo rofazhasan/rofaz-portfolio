@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   description: "Senior Full-Stack Engineer merging high-performance Rust backends with immersive Next.js frontends.",
 };
 
+import { ThemeProvider } from "next-themes";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,10 +36,12 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${outfit.variable} ${jbMono.variable} antialiased selection:bg-[#00ff41]/30 font-body bg-[var(--bg)] max-w-full overflow-x-hidden transition-colors duration-300`}
       >
-        <ClientLayout>
-          {children}
-          <Chatbot />
-        </ClientLayout>
+        <ThemeProvider attribute="data-theme" defaultTheme="dark">
+          <ClientLayout>
+            {children}
+            <Chatbot />
+          </ClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
