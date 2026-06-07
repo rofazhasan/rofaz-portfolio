@@ -106,6 +106,20 @@
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
+
+  --animate-shiny-text: shiny-text 8s linear infinite;
+
+  @keyframes shiny-text {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 120% 0%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
 }
 
 /* FAANG-Level Transitions */

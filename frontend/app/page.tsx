@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 import Link from 'next/link';
 import { Terminal, Cpu, Zap, Layers, ChevronRight, Monitor, Play, RefreshCw } from "lucide-react";
+import { AnimatedShinyText } from "../components/ui/animated-shiny-text";
 
 // --- CUSTOM BRAND ICONS (Stable) ---
 const GitHubIcon = ({ size = 20 }: { size?: number }) => (
@@ -131,7 +132,9 @@ export default function HomePage() {
          <div className="lg:col-span-8 space-y-12 relative z-10">
             <motion.div variants={itemVariants} className="flex items-center gap-4">
                <div className="h-0.5 w-16 bg-[var(--accent)]" />
-               <p className="text-[10px] font-mono text-[var(--accent)] tracking-[0.8em] uppercase font-black text-glow">Identity :: Kernel_Level_0</p>
+               <AnimatedShinyText className="text-[10px] font-mono text-[var(--accent)] tracking-[0.8em] uppercase font-black text-glow m-0 bg-transparent flex items-center">
+                 Identity :: Kernel_Level_0
+               </AnimatedShinyText>
             </motion.div>
 
             <div className="space-y-6">

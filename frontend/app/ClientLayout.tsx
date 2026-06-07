@@ -9,9 +9,11 @@ import { usePathname } from "next/navigation";
 import { ThemeProvider, useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import LiveShell from "../components/LiveShell";
+import { GithubButton } from "../components/ui/github-button";
 
 // Large 3D scenes should be dynamic to avoid SSR hydration mismatches
 const Scene3D = dynamic(() => import("../components/Scene3D"), { ssr: false });
+const FluidCursor = dynamic(() => import("../components/FluidCursor"), { ssr: false });
 
 // Global Synthesised Beep Utility using Web Audio API
 const playBeep = (freq = 800, duration = 0.05, type = "sine" as OscillatorType) => {
@@ -208,6 +210,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           )}
 
           {/* Atmospheric FAANG Layers */}
+          <FluidCursor />
           <Scene3D />
           <div className="terminal-grain" />
           <div className="fixed inset-0 bg-blueprint opacity-[var(--canvas-opacity)] pointer-events-none" />
@@ -240,6 +243,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                     )}
                   </Link>
                 ))}
+                <GithubButton 
+                  repoUrl="https://github.com/rofazhasan/rofaz-portfolio"
+                  label="Star"
+                  className="h-8 py-0 px-3 border-[var(--border-strong)] bg-transparent text-[9px] hover:text-[var(--accent)]"
+                />
                 <div className="h-6 w-[1px] bg-[var(--border)]" />
                 <ThemeToggle />
              </nav>

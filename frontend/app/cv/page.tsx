@@ -7,6 +7,8 @@ import {
   Briefcase, Cpu, Code2, GraduationCap, 
   Globe, Shield, Zap, Layers, BarChart2, CheckCircle2, ShieldCheck
 } from "lucide-react";
+import { AnimatedTestimonials } from "../../components/ui/animated-testimonials";
+import InternshipCard from "../../components/InternshipCard";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -294,6 +296,27 @@ function CertificationCard({ cert }: any) {
 }
 
 export default function CVPage() {
+  const testimonials = [
+    {
+      quote: "Rofaz's design of the Hostel MealLog database queries reduced index scan latencies by over 60%. His systems are incredibly clean and stable.",
+      name: "Dr. Al-Mamun",
+      designation: "CSE Professor & Project Supervisor @ RUET",
+      src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
+    },
+    {
+      quote: "Working with Rofaz on FinTrack Mobile was outstanding. His commitment to implementing AES-256 local encryption and clean Redux logic was key to our project success.",
+      name: "S. Mahmud",
+      designation: "Senior Lead Mobile Developer",
+      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+    },
+    {
+      quote: "Rofaz's technical mentorship during the Object Oriented Programming workshop was stellar. He clarified complex memory layouts for over 80 junior peers.",
+      name: "K. Rahman",
+      designation: "RUET CSE Workgroup Coordinator",
+      src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400"
+    }
+  ];
+
   const certifications = [
     {
       name: "Creative Talent Champion",
@@ -516,6 +539,30 @@ export default function CVPage() {
             <CertificationCard key={cert.id} cert={cert} />
           ))}
         </div>
+      </section>
+
+      {/* PROFESSIONAL ENDORSEMENTS (AnimatedTestimonials) */}
+      <section className="space-y-20">
+         <motion.div variants={itemVariants} className="flex items-center gap-8">
+            <div className="w-24 h-[1px] bg-[var(--accent)] opacity-50" />
+            <h4 className="text-[12px] font-black font-mono text-[var(--text-bright)] uppercase tracking-[0.8em] flex items-center gap-4">
+               System_Endorsements // Verified_Peer_Reviews
+            </h4>
+         </motion.div>
+
+         <AnimatedTestimonials testimonials={testimonials} />
+      </section>
+
+      {/* CAREER STATUS & OPPORTUNITIES */}
+      <section className="space-y-12">
+         <motion.div variants={itemVariants} className="flex items-center gap-8">
+            <div className="w-24 h-[1px] bg-[var(--cyan)] opacity-50" />
+            <h4 className="text-[12px] font-black font-mono text-[var(--text-bright)] uppercase tracking-[0.8em] flex items-center gap-4">
+               Talent_Acquisition_Gateway
+            </h4>
+         </motion.div>
+         
+         <InternshipCard />
       </section>
       
       {/* FINAL AUTH FOOTER */}
