@@ -1,42 +1,38 @@
-import React, { createContext, useContext, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGameStore } from '@/store/useGameStore';
-import { CAMPUS_ZONES, calculateZoneAndNeighbors, ZoneDefinition } from './zoneData';
+import { calculateZoneAndNeighbors } from './zoneData';
+import { ZoneStreamingContext, ZoneStreamingContextType } from './useZoneStreaming';
+export { useZoneStreaming } from './useZoneStreaming';
 
-interface ZoneStreamingContextType {
-  activeZoneId: string;
-  loadedZoneIds: Set<string>;
-  isZoneLoaded: (zoneId: string) => boolean;
-  isZoneActive: (zoneId: string) => boolean;
-}
-
-const ZoneStreamingContext = createContext<ZoneStreamingContextType>({
-  activeZoneId: 'zone_01',
-  loadedZoneIds: new Set(['zone_01', 'zone_02', 'zone_05', 'zone_08']),
-  isZoneLoaded: () => true,
-  isZoneActive: () => true,
-});
-
-export const useZoneStreaming = () => useContext(ZoneStreamingContext);
+const initialZoneState = calculateZoneAndNeighbors([0, 1, 35]);
+const initialLoadedSet = new Set<string>([
+  initialZoneState.activeZone.id,
+  ...initialZoneState.neighborZones.map((z) => z.id),
+]);
 
 export const ZoneStreamingManager: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const playerPos = useGameStore((s) => s.playerPos);
   const setActiveZone = useGameStore((s) => s.setActiveZone);
   const setNeighborZones = useGameStore((s) => s.setNeighborZones);
 
-  const activeZoneRef = useRef<string>('zone_01');
-  const loadedZonesSetRef = useRef<Set<string>>(new Set(['zone_01', 'zone_02', 'zone_05', 'zone_08']));
+  const [activeZoneId, setActiveZoneId] = useState<string>(initialZoneState.activeZone.id);
+  const [loadedZoneIds, setLoadedZoneIds] = useState<Set<string>>(initialLoadedSet);
+
+  const activeZoneRef = useRef<string>(initialZoneState.activeZone.id);
 
   useFrame(() => {
     const { activeZone, neighborZones } = calculateZoneAndNeighbors(playerPos);
 
     if (activeZone.id !== activeZoneRef.current) {
       activeZoneRef.current = activeZone.id;
-      const loadedSet = new Set<string>([
+      const nextLoadedSet = new Set<string>([
         activeZone.id,
         ...neighborZones.map((z) => z.id),
       ]);
-      loadedZonesSetRef.current = loadedSet;
+
+      setActiveZoneId(activeZone.id);
+      setLoadedZoneIds(nextLoadedSet);
 
       // Update Zustand store
       setActiveZone(`${activeZone.code}: ${activeZone.name}`);
@@ -45,10 +41,10 @@ export const ZoneStreamingManager: React.FC<{ children: React.ReactNode }> = ({ 
   });
 
   const value: ZoneStreamingContextType = {
-    activeZoneId: activeZoneRef.current,
-    loadedZoneIds: loadedZonesSetRef.current,
-    isZoneLoaded: (zoneId: string) => loadedZonesSetRef.current.has(zoneId),
-    isZoneActive: (zoneId: string) => activeZoneRef.current === zoneId,
+    activeZoneId,
+    loadedZoneIds,
+    isZoneLoaded: (zoneId: string) => loadedZoneIds.has(zoneId),
+    isZoneActive: (zoneId: string) => activeZoneId === zoneId,
   };
 
   return (

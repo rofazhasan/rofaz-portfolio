@@ -4,19 +4,17 @@ import * as THREE from 'three';
 import { useGameStore } from '@/store/useGameStore';
 
 interface CullingManagerProps {
-  maxDistance?: number;
   fadeDistance?: number;
 }
 
 const projScreenMatrix = new THREE.Matrix4();
 const frustum = new THREE.Frustum();
+const tempSphere = new THREE.Sphere();
 
 export const CullingManager: React.FC<CullingManagerProps> = ({
-  maxDistance = 120,
   fadeDistance = 25,
 }) => {
   const { camera, scene, gl } = useThree();
-  const playerPos = useGameStore((s) => s.playerPos);
   const setPerfMetrics = useGameStore((s) => s.setPerfMetrics);
   const graphicsQuality = useGameStore((s) => s.graphicsQuality);
 
@@ -25,17 +23,17 @@ export const CullingManager: React.FC<CullingManagerProps> = ({
   // Set distance threshold based on preset quality
   const actualMaxDistance =
     graphicsQuality === 'low'
-      ? 65
+      ? 80
       : graphicsQuality === 'medium'
-      ? 90
+      ? 120
       : graphicsQuality === 'high'
-      ? 125
-      : 160; // ultra
+      ? 180
+      : 250; // ultra
 
   useFrame(() => {
     frameCountRef.current++;
 
-    // Run culling update every frame
+    // Update camera frustum matrix
     camera.updateMatrixWorld();
     projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
     frustum.setFromProjectionMatrix(projScreenMatrix);
@@ -44,51 +42,58 @@ export const CullingManager: React.FC<CullingManagerProps> = ({
     let visibleCount = 0;
 
     scene.traverse((child) => {
-      // Skip background, ground, lights, and player
+      // NEVER touch non-mesh nodes, player, lights, or objects inside a hidden parent
       if (
         child.userData?.isPlayer ||
         child.userData?.alwaysVisible ||
         child.type.includes('Light') ||
-        child.type === 'Scene'
+        child.type === 'Scene' ||
+        child.type === 'Group' ||
+        !(child as THREE.Mesh).isMesh ||
+        (child.parent && !child.parent.visible)
       ) {
         return;
       }
 
-      if ((child as THREE.Mesh).isMesh || child.type === 'Group') {
-        // Calculate distance to camera / player
-        const worldPos = new THREE.Vector3();
-        child.getWorldPosition(worldPos);
+      const mesh = child as THREE.Mesh;
 
-        const distToCam = worldPos.distanceTo(camPos);
+      // Ensure geometry bounding sphere exists
+      if (!mesh.geometry.boundingSphere) {
+        mesh.geometry.computeBoundingSphere();
+      }
 
-        // Distance Culling
-        if (distToCam > actualMaxDistance) {
-          child.visible = false;
+      // Calculate distance to camera
+      const worldPos = new THREE.Vector3();
+      mesh.getWorldPosition(worldPos);
+      const distToCam = worldPos.distanceTo(camPos);
+
+      // 1. Distance Culling
+      if (distToCam > actualMaxDistance) {
+        mesh.visible = false;
+        return;
+      }
+
+      // 2. Frustum Culling using bounding sphere
+      if (mesh.geometry.boundingSphere) {
+        tempSphere.copy(mesh.geometry.boundingSphere);
+        tempSphere.applyMatrix4(mesh.matrixWorld);
+
+        if (!frustum.intersectsSphere(tempSphere)) {
+          mesh.visible = false;
           return;
         }
+      }
 
-        // Frustum Culling check
-        const isInsideFrustum = child.userData?.boundingBox
-          ? frustum.intersectsBox(child.userData.boundingBox)
-          : frustum.containsPoint(worldPos);
+      // Object is visible
+      mesh.visible = true;
+      visibleCount++;
 
-        if (!isInsideFrustum) {
-          child.visible = false;
-          return;
-        }
-
-        // Visible object
-        child.visible = true;
-        visibleCount++;
-
-        // Distance Fade Effect on Materials if close to maxDistance
-        if ((child as THREE.Mesh).isMesh) {
-          const mesh = child as THREE.Mesh;
-          if (Array.isArray(mesh.material)) {
-            mesh.material.forEach((mat) => applyFade(mat, distToCam, actualMaxDistance, fadeDistance));
-          } else if (mesh.material) {
-            applyFade(mesh.material, distToCam, actualMaxDistance, fadeDistance);
-          }
+      // Smooth Distance Fade Effect
+      if (mesh.material) {
+        if (Array.isArray(mesh.material)) {
+          mesh.material.forEach((mat) => applyFade(mat, distToCam, actualMaxDistance, fadeDistance));
+        } else {
+          applyFade(mesh.material, distToCam, actualMaxDistance, fadeDistance);
         }
       }
     });

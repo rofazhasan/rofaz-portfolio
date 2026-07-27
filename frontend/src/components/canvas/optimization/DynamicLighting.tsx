@@ -39,7 +39,8 @@ export const DynamicLighting: React.FC = () => {
             : '#ffffff'
         }
         castShadow={enableShadows}
-        shadow-mapSize={[shadowMapSize, shadowMapSize]}
+        shadow-mapSize-width={shadowMapSize}
+        shadow-mapSize-height={shadowMapSize}
         shadow-camera-left={-50}
         shadow-camera-right={50}
         shadow-camera-top={50}

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { useZoneStreaming } from '../streaming/ZoneStreamingManager';
+import { useZoneStreaming } from '../streaming/useZoneStreaming';
 import { useGameStore } from '@/store/useGameStore';
 
 export const LifecycleManager: React.FC<{ children: React.ReactNode }> = ({ children }) => {

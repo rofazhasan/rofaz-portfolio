@@ -15,7 +15,7 @@ import { GolfCart } from './buildings/GolfCart';
 import { WorldLocations } from './WorldLocations';
 import { NPCManager } from './NPCManager';
 import { InstancedProps } from './optimization/InstancedProps';
-import { useZoneStreaming } from './streaming/ZoneStreamingManager';
+import { useZoneStreaming } from './streaming/useZoneStreaming';
 
 export const CampusWorld: React.FC = () => {
   const { isZoneLoaded } = useZoneStreaming();
