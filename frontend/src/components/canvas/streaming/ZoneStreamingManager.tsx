@@ -1,9 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGameStore } from '@/store/useGameStore';
 import { calculateZoneAndNeighbors } from './zoneData';
 import { ZoneStreamingContext, ZoneStreamingContextType } from './useZoneStreaming';
-export { useZoneStreaming } from './useZoneStreaming';
 
 const initialZoneState = calculateZoneAndNeighbors([0, 1, 35]);
 const initialLoadedSet = new Set<string>([
@@ -12,7 +11,6 @@ const initialLoadedSet = new Set<string>([
 ]);
 
 export const ZoneStreamingManager: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const playerPos = useGameStore((s) => s.playerPos);
   const setActiveZone = useGameStore((s) => s.setActiveZone);
   const setNeighborZones = useGameStore((s) => s.setNeighborZones);
 
@@ -22,6 +20,8 @@ export const ZoneStreamingManager: React.FC<{ children: React.ReactNode }> = ({ 
   const activeZoneRef = useRef<string>(initialZoneState.activeZone.id);
 
   useFrame(() => {
+    // Read playerPos directly from store to prevent 60 FPS React re-renders
+    const playerPos = useGameStore.getState().playerPos;
     const { activeZone, neighborZones } = calculateZoneAndNeighbors(playerPos);
 
     if (activeZone.id !== activeZoneRef.current) {
@@ -40,12 +40,12 @@ export const ZoneStreamingManager: React.FC<{ children: React.ReactNode }> = ({ 
     }
   });
 
-  const value: ZoneStreamingContextType = {
+  const value = useMemo<ZoneStreamingContextType>(() => ({
     activeZoneId,
     loadedZoneIds,
     isZoneLoaded: (zoneId: string) => loadedZoneIds.has(zoneId),
     isZoneActive: (zoneId: string) => activeZoneId === zoneId,
-  };
+  }), [activeZoneId, loadedZoneIds]);
 
   return (
     <ZoneStreamingContext.Provider value={value}>

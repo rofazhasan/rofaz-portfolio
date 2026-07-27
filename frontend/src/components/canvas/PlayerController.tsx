@@ -138,7 +138,10 @@ export const PlayerController: React.FC<PlayerControllerProps> = ({
     if (!rigidBodyRef.current) return;
 
     const currentPos = rigidBodyRef.current.translation();
-    setPlayerPos([currentPos.x, currentPos.y, currentPos.z]);
+    const [lastX, lastY, lastZ] = useGameStore.getState().playerPos;
+    if ((currentPos.x - lastX) ** 2 + (currentPos.y - lastY) ** 2 + (currentPos.z - lastZ) ** 2 > 0.005) {
+      setPlayerPos([currentPos.x, currentPos.y, currentPos.z]);
+    }
 
     // Ground check via linvel y velocity and height
     const linvel = rigidBodyRef.current.linvel();
