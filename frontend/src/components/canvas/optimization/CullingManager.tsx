@@ -7,10 +7,6 @@ interface CullingManagerProps {
   fadeDistance?: number;
 }
 
-const projScreenMatrix = new THREE.Matrix4();
-const frustum = new THREE.Frustum();
-const tempSphere = new THREE.Sphere();
-
 export const CullingManager: React.FC<CullingManagerProps> = ({
   fadeDistance = 25,
 }) => {
@@ -23,26 +19,24 @@ export const CullingManager: React.FC<CullingManagerProps> = ({
   // Set distance threshold based on preset quality
   const actualMaxDistance =
     graphicsQuality === 'low'
-      ? 80
+      ? 90
       : graphicsQuality === 'medium'
-      ? 120
+      ? 140
       : graphicsQuality === 'high'
-      ? 180
-      : 250; // ultra
+      ? 200
+      : 300; // ultra
 
   useFrame(() => {
     frameCountRef.current++;
 
-    // Update camera frustum matrix
-    camera.updateMatrixWorld();
-    projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
-    frustum.setFromProjectionMatrix(projScreenMatrix);
+    // Explicitly update scene world matrix so positions are accurate
+    scene.updateMatrixWorld(true);
 
     const camPos = camera.position;
     let visibleCount = 0;
 
     scene.traverse((child) => {
-      // NEVER touch non-mesh nodes, player, lights, or objects inside a hidden parent
+      // NEVER touch non-mesh nodes, player, lights, sky, or ground elements
       if (
         child.userData?.isPlayer ||
         child.userData?.alwaysVisible ||
@@ -57,34 +51,21 @@ export const CullingManager: React.FC<CullingManagerProps> = ({
 
       const mesh = child as THREE.Mesh;
 
-      // Ensure geometry bounding sphere exists
-      if (!mesh.geometry.boundingSphere) {
-        mesh.geometry.computeBoundingSphere();
-      }
+      // Enable Three.js native WebGL frustum culling
+      mesh.frustumCulled = true;
 
-      // Calculate distance to camera
+      // Calculate distance from mesh to camera
       const worldPos = new THREE.Vector3();
       mesh.getWorldPosition(worldPos);
       const distToCam = worldPos.distanceTo(camPos);
 
-      // 1. Distance Culling
+      // Distance Culling (hide distant objects beyond threshold)
       if (distToCam > actualMaxDistance) {
         mesh.visible = false;
         return;
       }
 
-      // 2. Frustum Culling using bounding sphere
-      if (mesh.geometry.boundingSphere) {
-        tempSphere.copy(mesh.geometry.boundingSphere);
-        tempSphere.applyMatrix4(mesh.matrixWorld);
-
-        if (!frustum.intersectsSphere(tempSphere)) {
-          mesh.visible = false;
-          return;
-        }
-      }
-
-      // Object is visible
+      // Restore visibility if within range
       mesh.visible = true;
       visibleCount++;
 
