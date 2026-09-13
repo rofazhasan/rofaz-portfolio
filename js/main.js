@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initTagSphere();
   initTerminalConsole();
   initScrollReveal();
+  initBackToTop();
+  initSnappyNavigation();
 });
 
 /**
@@ -111,7 +113,7 @@ function initScrollProgress() {
  */
 function initSpotlight() {
   const spotlight = document.getElementById('spotlight');
-  if (!spotlight) return;
+  if (!spotlight || !window.matchMedia('(pointer: fine)').matches) return;
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 3;
@@ -412,28 +414,31 @@ function initTerminalConsole() {
 
   trigger.addEventListener('click', () => {
     modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
     if (input) input.focus();
     sound.playBlip();
   });
 
+  const closeModal = () => {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    sound.playClick();
+  };
+
   if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('open');
-      sound.playClick();
-    });
+    closeBtn.addEventListener('click', closeModal);
   }
 
   // Close terminal modal when clicking outside window
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-      modal.classList.remove('open');
-      sound.playClick();
+      closeModal();
     }
   });
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) {
-      modal.classList.remove('open');
+      closeModal();
     }
   });
 }
@@ -476,3 +481,49 @@ function initScrollReveal() {
   });
 }
 
+/**
+ * 10. Floating Back To Top Button
+ */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  toggleVisibility();
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    sound.playWhoosh();
+  });
+}
+
+/**
+ * 11. Snappy Smooth Navigation
+ */
+function initSnappyNavigation() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const nav = document.getElementById('site-nav');
+        const navHeight = nav ? nav.offsetHeight : 68;
+        const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({
+          top: Math.max(0, targetPos),
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
