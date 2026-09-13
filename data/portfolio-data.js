@@ -20,7 +20,7 @@ export const PORTFOLIO_DATA = {
     contacts: {
       email: "mdrofazhasanrafiu@gmail.com",
       phone: "+880-1794-678595",
-      website: "https://rofazacademy.dev",
+      website: "https://rofazhasan.github.io/rofaz-portfolio/",
       github: "https://github.com/rofazhasan",
       linkedin: "https://linkedin.com/in/md-rofaz-hasan-rafiu",
       resumePdf: "assets/Md_Rofaz_Hasan_Rafiu_Resume.pdf"
