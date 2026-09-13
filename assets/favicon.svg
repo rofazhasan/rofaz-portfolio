@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="100%" height="100%">
+  <defs>
+    <!-- Neon Teal/Cyan Gradient -->
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5d4" />
+      <stop offset="50%" stop-color="#64ffda" />
+      <stop offset="100%" stop-color="#00b4d8" />
+    </linearGradient>
+
+    <!-- Deep Hex Glass Fill -->
+    <linearGradient id="brand-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(100, 255, 218, 0.15)" />
+      <stop offset="100%" stop-color="rgba(10, 25, 47, 0.55)" />
+    </linearGradient>
+
+    <!-- Glowing Filter -->
+    <filter id="brand-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.8" flood-color="#64ffda" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Outer Neural Hexagon Frame -->
+  <polygon points="24 4, 41 14, 41 34, 24 44, 7 34, 7 14"
+    fill="url(#brand-fill)"
+    stroke="url(#brand-grad)"
+    stroke-width="1.8"
+    stroke-linejoin="round"
+  />
+
+  <!-- Neural Circuit Trace Lines -->
+  <path d="M24 4 L24 13 M41 14 L33 19 M41 34 L33 29 M24 44 L24 35 M7 34 L15 29 M7 14 L15 19"
+    stroke="rgba(100, 255, 218, 0.35)"
+    stroke-width="1"
+    stroke-linecap="round"
+  />
+
+  <!-- Precision Monogram 'R' (AI Matrix Vector) -->
+  <!-- Stem -->
+  <path d="M17 15.5 V32.5" 
+    stroke="url(#brand-grad)" 
+    stroke-width="2.6" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Upper Loop -->
+  <path d="M17 17 H26.5 C29.5 17 31.5 19 31.5 21.5 C31.5 24 29.5 26 26.5 26 H17" 
+    stroke="url(#brand-grad)" 
+    stroke-width="2.6" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+  />
+
+  <!-- Neural Diagonal Leg + Node -->
+  <path d="M24.5 25.5 L31 32.5" 
+    stroke="url(#brand-grad)" 
+    stroke-width="2.6" 
+    stroke-linecap="round" 
+  />
+
+  <!-- Neural Vertex Synapse Nodes -->
+  <circle cx="24" cy="4" r="1.5" fill="#00f5d4" filter="url(#brand-glow)" />
+  <circle cx="41" cy="14" r="1.5" fill="#64ffda" />
+  <circle cx="41" cy="34" r="1.5" fill="#00b4d8" />
+  <circle cx="24" cy="44" r="1.5" fill="#00b4d8" filter="url(#brand-glow)" />
+  <circle cx="7" cy="34" r="1.5" fill="#00f5d4" />
+  <circle cx="7" cy="14" r="1.5" fill="#64ffda" />
+
+  <!-- Active Model Inference Dot on R Leg -->
+  <circle cx="31" cy="32.5" r="2" fill="#00f5d4" filter="url(#brand-glow)" />
+</svg>
