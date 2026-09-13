@@ -90,17 +90,21 @@ export class TagSphere {
   resize() {
     if (!this.canvas) return;
     const rect = this.canvas.parentElement.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-    this.width = rect.width;
-    this.height = Math.max(340, Math.min(420, rect.height || 380));
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.width = rect.width || 280;
+    const isMobile = window.innerWidth <= 768;
+    this.height = isMobile 
+      ? Math.max(260, Math.min(320, this.width * 1.05))
+      : Math.max(340, Math.min(420, rect.height || 380));
 
     this.canvas.width = this.width * dpr;
     this.canvas.height = this.height * dpr;
     this.canvas.style.width = `${this.width}px`;
     this.canvas.style.height = `${this.height}px`;
 
+    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
     this.ctx.scale(dpr, dpr);
-    this.radius = Math.min(this.width, this.height) * 0.38;
+    this.radius = Math.min(this.width, this.height) * (isMobile ? 0.35 : 0.38);
   }
 
   bindEvents() {
@@ -221,9 +225,10 @@ export class TagSphere {
       item.scale = scale;
 
       const isAI = item.category === 'ai';
-      const fontSize = Math.max(9, Math.floor(13 * scale));
+      const baseFontSize = this.width < 320 ? 11.5 : 13;
+      const fontSize = Math.max(8.5, Math.floor(baseFontSize * scale));
 
-      this.ctx.font = `600 ${fontSize}px "JetBrains Mono", monospace`;
+      this.ctx.font = `600 ${fontSize}px "Fira Code", monospace`;
       this.ctx.textAlign = 'center';
       this.ctx.textBaseline = 'middle';
 

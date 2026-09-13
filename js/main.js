@@ -64,6 +64,13 @@ function initMobileMenu() {
       toggleMenu(false);
     }
   });
+
+  // Close menu if window resized to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
+      toggleMenu(false);
+    }
+  });
 }
 
 /**
@@ -190,6 +197,7 @@ function initExperienceTabs() {
       if (targetPanel) {
         targetPanel.classList.add('active');
       }
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       sound.playWhoosh();
     });
   });
@@ -215,6 +223,7 @@ function initAILabSandbox() {
       if (targetPanel) {
         targetPanel.classList.add('active');
       }
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       sound.playWhoosh();
     });
   });
@@ -413,6 +422,14 @@ function initTerminalConsole() {
       sound.playClick();
     });
   }
+
+  // Close terminal modal when clicking outside window
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('open');
+      sound.playClick();
+    }
+  });
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) {
