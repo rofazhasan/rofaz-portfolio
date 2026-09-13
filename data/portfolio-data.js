@@ -412,38 +412,80 @@ class LeafCaptureService {
     {
       name: "digital_school",
       url: "https://github.com/rofazhasan/digital_school",
-      description: "Flagship online education & assessment platform with local SLM mistake diagnostic engine and client-side vision proctoring.",
-      tech: "Next.js 15 · TypeScript · PostgreSQL · Ollama · TensorFlow.js"
+      description: "Flagship online education & assessment platform with local SLM mistake diagnostic engine, client-side vision proctoring, and PostgreSQL database.",
+      tech: "Next.js 15 · TypeScript · PostgreSQL · Ollama · TensorFlow.js · Prisma"
+    },
+    {
+      name: "atlas",
+      url: "https://github.com/rofazhasan/atlas",
+      description: "Native macOS Financial Operating System built with Swift 6, SwiftUI, SwiftData, Apple Vision OCR, and AES-256 GCM zero-knowledge cryptographic vault.",
+      tech: "Swift 6 · SwiftUI · SwiftData · Vision OCR · CryptoKit · AppKit"
+    },
+    {
+      name: "FocusGuard",
+      url: "https://github.com/rofazhasan/FocusGuard",
+      description: "Distributed cross-platform systems daemon coordinating real-time focus sessions with Chrome MV3 declarativeNetRequest rule compilation.",
+      tech: "Go 1.22 · WebSockets · Docker · Chrome MV3 · SQLite · Android VpnService"
     },
     {
       name: "OMRView",
       url: "https://github.com/rofazhasan/OMRView",
       description: "In-browser computer vision pipeline running compiled OpenCV.js WebAssembly for document geometric rectification and mark recognition.",
-      tech: "TypeScript · React 19 · Vite · OpenCV.js Wasm"
+      tech: "TypeScript · React 19 · Vite · OpenCV.js Wasm · Canny Edge"
     },
     {
-      name: "FocusGuard",
-      url: "https://github.com/rofazhasan/FocusGuard",
-      description: "Distributed cross-platform systems daemon coordinating real-time focus sessions with Chrome MV3 network rule compilation.",
-      tech: "Go 1.22 · WebSockets · Docker · Chrome MV3 · SQLite"
+      name: "BioEntry",
+      url: "https://github.com/rofazhasan/BioEntry",
+      description: "BioEntry Pro v6.0: State-of-the-art cross-platform Biometric Attendance Management System with Electron, React, and TensorFlow.js WebGL/WASM acceleration.",
+      tech: "Electron · React · TensorFlow.js · WebGL · WASM · Node.js"
     },
     {
       name: "Krishi_Bondhu_AI",
       url: "https://github.com/rofazhasan/Krishi_Bondhu_AI",
-      description: "Offline-first mobile crop health assistant with on-device camera acquisition pipeline and local SQLite storage.",
-      tech: "Flutter · Dart · Riverpod · SQLite · Hardware Camera"
+      description: "Offline-first mobile crop health assistant with on-device camera acquisition pipeline, local SQLite persistence, and bilingual voice playback.",
+      tech: "Flutter · Dart · Riverpod · SQLite · Hardware Camera API"
     },
     {
       name: "Meal-Management",
       url: "https://github.com/rofazhasan/Meal-Management",
-      description: "Full-stack relational ledger application for university hostel meal calculations with automated expense aggregation.",
-      tech: "TypeScript · React · Node.js · PostgreSQL"
+      description: "Meal Manager V2: Full-stack hostel & mess management platform with automated meal calculation, expense aggregation, and dynamic balance ledgers.",
+      tech: "React 18 · TypeScript · TailwindCSS · Prisma v5 · PostgreSQL · Vite"
+    },
+    {
+      name: "study-companion",
+      url: "https://github.com/rofazhasan/study-companion",
+      description: "AI-Powered Learning Assistant mobile application built with Flutter, Dart, Firebase, and Google Gemini AI for automated academic workflow optimization.",
+      tech: "Flutter · Dart · Firebase · Google Gemini AI · Cross-Platform"
+    },
+    {
+      name: "sdms",
+      url: "https://github.com/rofazhasan/sdms",
+      description: "High-concurrency School & Student Data Management System featuring multi-role authentication, academic tracking, and relational data architecture.",
+      tech: "JavaScript · Node.js · Express · Relational Database · REST API"
     },
     {
       name: "FinTrack",
       url: "https://github.com/rofazhasan/FinTrack",
-      description: "Personal finance and cashflow tracker with visual transaction category distributions and budgeting alerts.",
-      tech: "TypeScript · Next.js · Prisma · PostgreSQL"
+      description: "Cross-platform personal wealth and cashflow telemetry tracker with category spending distribution analysis and budgeting safeguards.",
+      tech: "React Native · TypeScript · Java · Mobile UI · API Client"
+    },
+    {
+      name: "Election_Game",
+      url: "https://github.com/rofazhasan/Election_Game",
+      description: "Interactive political simulation engine and complex state machine architecture engineered in Godot Engine with procedural event branching.",
+      tech: "Godot Engine · GDScript · Finite State Machine · Simulation"
+    },
+    {
+      name: "Salat_Timings",
+      url: "https://github.com/rofazhasan/Salat_Timings",
+      description: "Solar altitude & astronomical calculation engine computing high-precision prayer timings based on geographic latitude, longitude, and solar declination.",
+      tech: "HTML5 · JavaScript · Astronomical Algorithms · CSS3"
+    },
+    {
+      name: "weather",
+      url: "https://github.com/rofazhasan/weather",
+      description: "Real-time atmospheric telemetry and meteorological forecasting application utilizing external weather API endpoints with dynamic UI transitions.",
+      tech: "HTML5 · CSS3 · JavaScript · Weather APIs · Responsive Design"
     }
   ]
 };
